@@ -1,5 +1,9 @@
 import { ModeToggle } from './mode-toggle';
-import { NavigationMenu } from './ui/navigation-menu';
+import {
+  NavigationMenu,
+  NavigationMenuLink,
+  navigationMenuTriggerStyle,
+} from './ui/navigation-menu';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
@@ -14,7 +18,7 @@ const Navbar = () => {
     <>
       <nav className="flex justify-between py-2 px-10 items-center bg-slate-50 dark:bg-[#0a0a0b]">
         <h1 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-500 dark:bg-gradient-to-r dark:from-white dark:via-sky-500 dark:to-sky-500 bg-clip-text text-transparent">
-          STAR.ai
+          STAR.AI
         </h1>
 
         {/* menu */}
@@ -40,13 +44,17 @@ const Navbar = () => {
               </svg>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuLabel></DropdownMenuLabel>
+              <DropdownMenuLabel>
+                <a href="/">Home</a>
+              </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuLabel></DropdownMenuLabel>
+              <DropdownMenuLabel>
+                <a href="/search-engine">Search Engine</a>
+              </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuLabel>
                 <a
-                  href="https://github.com/R1shabh-Gupta/TextWiz"
+                  href="https://github.com/R1shabh-Gupta/star.ai"
                   target="_blank"
                 >
                   GitHub
@@ -61,9 +69,29 @@ const Navbar = () => {
         <div className="md:flex gap-5 hidden">
           <NavigationMenu className="flex gap-2">
             <div className="flex gap-4 flex-wrap justify-around">
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                href="/"
+              >
+                Home
+              </NavigationMenuLink>
+
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                href="/chatbot"
+              >
+                Chatbot
+              </NavigationMenuLink>
+
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                href="/search-engine"
+              >
+                Search Engine
+              </NavigationMenuLink>
               <Button variant="outline" size="icon">
                 <a
-                  href="https://github.com/R1shabh-Gupta/TextWiz"
+                  href="https://github.com/R1shabh-Gupta/star.ai"
                   target="_blank"
                 >
                   <svg
@@ -86,7 +114,7 @@ const Navbar = () => {
             </div>
           </NavigationMenu>
           {/* dark mode */}
-          <ModeToggle />
+          {/* <ModeToggle /> */}
         </div>
       </nav>
 

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Milky Way Skybox HDRI panorama
+* source:	https://sketchfab.com/3d-models/milky-way-skybox-hdri-panorama-b57711d6a450410ca612c4a36f08ce21
+* author:	Aliaksandr.melas (https://sketchfab.com/alexandr.melas)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Milky Way Skybox HDRI panorama" (https://sketchfab.com/3d-models/milky-way-skybox-hdri-panorama-b57711d6a450410ca612c4a36f08ce21) by Aliaksandr.melas (https://sketchfab.com/alexandr.melas) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
