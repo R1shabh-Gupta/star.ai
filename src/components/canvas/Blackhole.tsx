@@ -5,7 +5,7 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 import CanvasLoader from '../Loader';
 
 const Blackhole = () => {
-  const earth = useGLTF('./rocket/scene.gltf');
+  const earth = useGLTF('./black-hole/scene.gltf');
 
   return (
     <primitive object={earth.scene} scale={2} position-y={0} rotation-y={0} />

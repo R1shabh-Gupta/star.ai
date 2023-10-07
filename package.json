@@ -19,6 +19,7 @@
     "@tabler/icons-react": "^2.38.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "firebase": "^10.4.0",
     "lucide-react": "^0.284.0",
     "maath": "^0.10.4",
     "react": "^18.2.0",
