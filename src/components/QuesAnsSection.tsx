@@ -25,7 +25,7 @@ const QuesAnsSection = () => {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        'https://r1shabh.pythonanywhere.com/summarize',
+        'http://127.0.0.1:5000/test',
         {
           text: inputText,
         },
@@ -35,9 +35,10 @@ const QuesAnsSection = () => {
           },
         }
       );
+
+      setOutputText(response.data.data);
+
       setIsLoading(false);
-      console.log(response.data);
-      setOutputText(response.data.summary);
     } catch (error) {
       console.error('Error:', error);
     }
