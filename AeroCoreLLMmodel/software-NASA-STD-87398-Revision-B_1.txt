@@ -1,0 +1,2827 @@
+
+1. SCOPE
+1.1 Document Purpose
+The purpose of the Software Assurance and Software Safety Standard is to define the 
+requirements to implement a systematic approach to software assurance, software safety, and 
+Independent Verification and Validation (IV&V) for software created, acquired, provided, used, 
+or maintained by or for NASA. Various personnel in the program, project, engineering, facility, 
+or Safety and Mission Assurance (SMA) organizations can perform the activities required to 
+satisfy these requirements. The Software Assurance and Software Safety Standard provides a 
+basis for personnel to perform software assurance, software safety, and IV&V activities 
+consistently throughout the life of the software. 
+The Software Assurance and Software Safety Standard, in accordance with NPR 
+7150.2, NASA Software Engineering Requirements, supports the implementation of the software 
+assurance, software safety, and IV&V sub-disciplines. The application and approach to meeting 
+the Software Assurance and Software Safety Standard vary based on the system and software
+products and processes to which they are applied. The Software Assurance and Software Safety 
+Standard stresses coordination between the software assurance sub-disciplines and system safety, 
+system reliability, hardware quality, system security, and software engineering to maintain the 
+system perspective and minimize duplication of effort.
+The objectives of the Software Assurance and Software Safety Standard include the 
+following:
+a. Ensuring that the processes, procedures, and products used to produce and sustain the 
+software conform to all specified requirements and standards that govern those processes, 
+procedures, and products.
+(1) A set of activities that assess adherence to, and the adequacy of the software processes 
+used to develop and modify software products. 
+(2) A set of activities that define and assess the adequacy of software processes to provide 
+evidence that establishes confidence that the software processes are appropriate for and 
+produce software products of suitable quality for their intended purposes. 
+b. Determining the degree of software quality obtained by the software products. 
+c. Ensuring that the software systems are safe and that the software safety-critical requirements 
+are followed.
+d. Ensuring that the software systems are secure.
+NASA-STD-8739.8B
+6 of 70
+e. Employing rigorous analysis and testing methodologies to identify objective evidence and 
+conclusions to provide an independent assessment of critical products and processes 
+throughout the life cycle.
+The Software Assurance and Software Safety Standard is compatible with all software 
+life cycle models. The Software Assurance and Software Safety Standard does not impose a 
+particular life cycle model on a software project.
+In this standard, all mandatory actions (i.e., requirements) are denoted by statements 
+containing the term “shall.” The terms “may” denote a discretionary privilege or permission;
+“can” denotes statements of possibility or capability; “should” denotes a good practice and is 
+recommended; but not required, “will” denotes expected outcome; and “are/is” denotes 
+descriptive material.
+1.2 Applicability
+This standard is approved for use by NASA Headquarters and NASA Centers, 
+including Component Facilities and Technical and Service Support Centers. This NASA 
+Technical Standard applies to the assurance of software created by or for NASA projects, 
+programs, facilities, and activities and defines the requirements for those activities. This directive 
+is applicable to the Jet Propulsion Laboratory, a Federally Funded Research and Development 
+Center, only to the extent specified in the NASA/Caltech Prime Contract. This standard may also 
+apply to other contractors, grant recipients, or parties to agreements to the extent specified or 
+referenced in their contracts, grants, or agreements. 
+1.3 Documentation and Deliverables
+The Software Assurance and Software Safety Standard is not intended to designate the 
+format of program/project/facility documentation and deliverables. The software assurance and 
+software safety data, information, and plans may be considered to be quality records with a 
+retention period as specified in NRRS 1441.1. The format of the documentation is a 
+program/project/facility decision. The software assurance and software safety organizations
+should keep records, reports, metrics, analyses, and trending results and should keep copies of 
+their project plans for future reference and improvements. The software assurance and software 
+safety plans (e.g., the Software Assurance Plan) can be standalone documents or incorporated 
+within other documents (e.g., part of a Software Management Plan, a Software Development 
+Plan or part of a Program or Project Safety and Mission Assurance (SMA) plan).
+1.4 Request for Relief
+Tailoring of this standard for application to a specific program or project is documented 
+as part of program or project requirements and approved by the responsible Center Technical 
+Authority (TA) in accordance with NPR 8715.3, NASA General Safety Program Requirements.
+Section 4.5 of this standard contains the principles related to tailoring this standard’s
+requirements.
+NASA-STD-8739.8B
+7 of 70
+2. APPLICABLE AND REFERENCE DOCUMENTS
+2.1 Applicable Documents
+The applicable documents are accessible via the NASA Technical Standards System at 
+https://standards.nasa.gov, or the NASA Online Directives Information System 
+https://nodis3.gsfc.nasa.gov/main_lib.cfm or may be obtained directly from the Standards 
+Developing Organizations. 
+NPR 1400.1 NASA Directives and Charters Procedural Requirements
+NPR 7120.5 NASA Space Flight Program and Project Management 
+Requirements
+NPR 7120.10 Technical Standards for NASA Programs and Projects
+NPR 7150.2 NASA Software Engineering Requirements
+NPR 8000.4 Agency Risk Management Procedural Requirements
+NPR 8715.3 NASA General Safety Program Requirements
+NASA-HDBK-2203 NASA Software Engineering Handbook
+NASA-HDBK-4008 Programmable Logic Devices Handbook
+NRRS 1441.1 NASA Records Retention Schedules
+2.2 Reference Documents
+The reference documents listed in this section are not incorporated by reference within this 
+standard but may provide further clarification and guidance.
+Government Documents
+NPD 2810.1 NASA Information Security Policy
+NPD 8720.1 NASA Reliability and Maintainability Program Policy
+NPR 1441.1 NASA Records Management Program Requirements
+NPR 2210.1 Release of NASA Software
+NPR 2810.1 Security of Information and Information Systems 
+NPR 2830.1 NASA Enterprise Architecture Procedures
+NPR 2841.1 Identity, Credential, and Access Management
+NASA-STD-8739.8B
+8 of 70
+NPR 7120.7 NASA Information Technology Program and Project 
+Management Requirements
+NPR 7120.8 NASA Research and Technology Program and Project 
+Management Requirements
+NPR 7120.10 Technical Standards for NASA Programs and Projects
+NPR 7120.11 Health and Medical Technical Authority Implementation
+NPR 7123.1 NASA Systems Engineering Processes and Requirements.
+NPR 8000.4 Agency Risk Management Procedural Requirements
+NPR 7123.1 NASA Systems Engineering Processes and Requirements
+NASA-STD-1006 Space System Protection Standard
+NASA-STD-2601 Minimum Cybersecurity Requirements for Computing 
+Systems
+NASA-STD-7009 Standard for Models and Simulations
+NASA-STD-8729.1 NASA Reliability And Maintainability Standard For 
+Spaceflight And Support Systems 
+NASA-HDBK-7009 NASA Handbook for Models and Simulations: An 
+Implementation Guide for NASA-STD-7009
+NASA-HDBK-8709.22 Safety and Mission Assurance Acronyms, Abbreviations, 
+and Definitions 
+NASA-HDBK-8739.23 NASA Complex Electronics Handbook for Assurance 
+Professionals
+NIST SP 800-37 Risk Management Framework
+NIST SP 800-40 Guide to Enterprise Patch Management Planning: 
+Preventive Maintenance for Technology
+NIST SP 800-53 Security and Privacy Controls for Information Systems and 
+Organizations
+NIST SP 800-70 National Checklist Program for Information Technology
+products: Guidelines for Checklist Users and Developers
+NIST SP 800-115 Technical Guide to Information Security Testing and 
+Assessment
+NASA-STD-8739.8B
+9 of 70
+NFS 1813.301-79 Supporting Federal Policies, Regulations, and NASA 
+Procedural Requirements 
+NFS 1852.237-72 Access to Sensitive Information
+NFS 1852.237-73 Release of Sensitive Information
+Non-Government Documents
+CMMI-DEV, V2.0 CMMI® for Development, Version 2.0
+IEEE 730 Institute of Electrical and Electronics Engineers (IEEE) 
+Standard for Software Quality Assurance Processes 
+IEEE 828 IEEE Standard for Configuration Management in Systems 
+and Software Engineering. 
+IEEE 982.1 IEEE Standard Measures of the Software Aspects of 
+Dependability
+IEEE 1012 IEEE Standard for System, Software, and Hardware 
+Verification and Validation
+IEEE 1028 IEEE Standard for Software Reviews and Audits
+IEEE 1633 IEEE Recommended Practice on Software Reliability
+IEEE 15026-1 Systems and software engineering--Systems and software 
+assurance--Part 1: Concepts and vocabulary
+IEEE 29119-4 Software and systems engineering -- Software testing --
+Part 4: Test techniques
+ISO 26514 Systems and software engineering–requirements for 
+designers and developers of user documentation
+ISO 24765 System and Software Engineering – Vocabulary
+2.3 Order of Precedence
+This standard establishes requirements to implement a systematic approach to Software 
+Assurance, Software Safety, and IV&V for software created, acquired, provided, or maintained 
+by or for NASA but does not supersede nor waive established Agency requirements found in 
+other documentation.
+Conflicts between the Software Assurance and Software Safety Standard and other 
+requirements documents are resolved by the responsible SMA and engineering TA(s), per NPR 
+NASA-STD-8739.8B
+10 of 70
+1400.1, NASA Directives and Charters Procedural Requirements, and NPR 7120.10, Technical 
+Standards for NASA Programs and Projects.
+NASA-STD-8739.8B
+11 of 70
+3. ACRONYMS AND DEFINITIONS
+3.1 Acronyms and Abbreviations
+CMMI®️ Capability Maturity Model Integration
+COTS Commercial-Off-The-Shelf
+GOTS Government-Off-The-Shelf
+HDBK Handbook
+IEEE Institute of Electrical and Electronics Engineers
+IPEP IV&V Project Execution Plan 
+IV&V Independent Verification and Validation
+MC/DC Modified Condition/Decision Coverage
+MOTS Modified-Off-The-Shelf
+NASA National Aeronautics and Space Administration
+NIST National Institute of Standards and Technology
+NPD NASA Policy Directive
+NPR NASA Procedural Requirements
+NRRS NASA Records Retention Schedule
+OSMA NASA Headquarters Office, Safety and Mission Assurance
+OSS Open Source Software
+PLC Programmable Logic Controller
+PROM Programmable Read-Only Memory
+RTOS Real-Time Operating System
+SMA Safety and Mission Assurance
+SP Special Publication
+SWE Software Engineering
+TA Technical Authority
+NASA-STD-8739.8B
+12 of 70
+3.2 Definitions
+Accredit. The official acceptance of a software development tool, model, or simulation,
+including associated data, to use for a specific purpose.
+Acquirer. The entity or individual who specifies the requirements and accepts the resulting 
+software products. The Acquirer is usually NASA or an organization within the Agency but can 
+also refer to the prime contractor-subcontractor relationship.
+Analyze. Review results in-depth, look at relationships of activities, examine methodologies in 
+detail, and follow methodologies such as Failure Mode and Effects Analysis, Fault Tree 
+Analysis, trending, and metrics analysis. Examine processes, plans, products, and task lists for 
+completeness, consistency, accuracy, reasonableness, and compliance with requirements. The 
+analysis may include identifying missing, incomplete, or inaccurate products, relationships, 
+deliverables, activities, required actions, etc.
+Approve. When the responsible originating official, or designated decision authority, of a 
+document, report, condition, etc., has agreed, via their signature, to the content and indicates the 
+document is ready for release, baselining, distribution, etc. Usually, one “approver” and several 
+stakeholders need to “concur” for official acceptance of a document, report, etc. For example, the 
+project manager would approve the Software Development Plan, but SMA would concur on it.
+Assess. Judge results against plans or work product requirements. Assess includes judging for 
+practicality, timeliness, correctness, completeness, compliance, evaluation of rationale, etc., 
+reviewing activities performed, and independently tracking corrective actions to closure.
+Assure. When software assurance personnel make certain that others have performed the 
+specified software assurance, management, and engineering activities.
+Audit. Formal review to assess compliance with hardware or software requirements, 
+specifications, baselines, safety standards, procedures, instructions, codes, and contractual and 
+licensing requirements. (Source NPR 8715.3)
+Bi-directional Traceability. Association among two or more logical entities that are discernible 
+in either direction (to and from an entity). (Source IEEE Definition)
+Concur. A documented agreement that a proposed course of action is acceptable.
+Condition. (1) measurable qualitative or quantitative attribute that is stipulated for a 
+requirement and that indicates a circumstance or event under which a requirement applies (2)
+description of a contingency to be considered in the representation of a problem, or a reference to 
+other procedures to be considered as part of the condition (3) true or false logical predicate (4)
+logical predicate involving one or more behavior model elements (5) Boolean expression 
+containing no Boolean operators.
+Configuration Item. (1)item or aggregation of hardware, software, or both that is designated 
+for configuration management and treated as a single entity in the configuration management 
+process (2)component of an infrastructure or an item which is or will be under control of 
+NASA-STD-8739.8B
+13 of 70
+configuration management (3) aggregation of work products that is designated for configuration 
+management and treated as a single entity in the configuration management process (4) any 
+system element or aggregation of system elements that satisfies an end use function and is 
+designated by the acquirer for separate configuration control (5) item or aggregation of software 
+that is designed to be managed as a single entity and its underlying components, such as 
+documentation, data structures, scripts. (Source IEEE Definition)
+Note: Configuration items can vary widely in complexity, size, and type, ranging from an entire 
+system including all hardware, software, and documentation, to a single module or a minor 
+hardware component. CIs have four common characteristics: defined functionality; replaceable 
+as an entity; unique specification; formal control of form, fit, and function. See Also: hardware
+configuration item, computer software configuration item, configuration identification, and 
+critical item. 
+Confirm. Check to see that activities specified in the software engineering requirements are
+adequately done and evidence of the activities exists as proof. Confirm includes ensuring 
+activities are done completely and correctly and have expected content according to approved 
+tailoring.
+Critical. A condition that may cause severe injury or occupational illness, or major property 
+damage to facilities, systems, or flight hardware.
+Deliverable. Product or item that has to be completed and delivered under the terms of an 
+agreement or contract. Products may also be deliverables, e.g., software requirements 
+specifications, and detailed design documents.
+Develop. To produce or create a product or document and mature or advance the product or 
+document content.
+Ensure. When software assurance or software safety personnel perform the specified software 
+assurance and software safety activities themselves.
+Event. (1) occurrence of a particular set of circumstances (2) external or internal stimulus used 
+for synchronization purposes (3) change detectable by the subject software (4) fact that an action 
+has taken place (5) singular moment in time at which some perceptible phenomenological 
+change (energy, matter, or information) occurs at the port of a unit.
+Failure. Inability of a system, subsystem, component, or part to perform its required function 
+within specified limits. (Source NPR 8715.3)
+Hazard. A state or a set of conditions, internal or external to a system that has the potential to 
+cause harm. (Source NPR 8715.3)
+Hazard Analysis. Identifying and evaluating existing and potential hazards and the 
+recommended mitigation for the hazard sources found.
+Hazard Control. Means of reducing the risk of exposure to a hazard. (Source NPR 8715.3)
+NASA-STD-8739.8B
+14 of 70
+Hazardous Operation/Work Activity. Any operation or other work activity that, without the 
+implementation of proper mitigations, has a high potential to result in loss of life, serious injury 
+to personnel or public, or damage to property due to the material or equipment involved or the 
+nature of the operation/activity itself.
+Independent Verification and Validation. Verification and validation performed by an 
+organization that is technically, managerially, and financially independent of the development 
+organization. (Source IEEE Definition)
+Inhibit. Design feature that prevents the operation of a function.
+Insight. An element of Government surveillance that monitors contractor compliance using 
+Government-identified metrics and contracted milestones. Insight is a continuum that can range 
+from low intensity such as reviewing quarterly reports to high intensity such as performing 
+surveys and reviews. (Source NPR 7123.1)
+Maintain. To continue to have; to keep in existence, to stay up-to-date and correct.
+Mission Critical. [1] Item or function that must retain its operational capability to assure no 
+mission failure (i.e., for mission success). [2] An item or function, the failure of which may 
+result in the inability to retain operational capability for mission continuation if corrective action 
+is not successfully performed. (Source NASA-STD-8729.1)
+Mission Success. Meeting all mission objectives and requirements for performance and safety.
+(Source NPR 8715.3)
+Monitor. (1) software tool or hardware device that operates concurrently with a system or 
+component and supervises, records, analyzes, or verifies the operation of the system or 
+component; (2) collect project performance data with respect to a plan, process, produce 
+performance measures, and report and disseminate performance information.
+Participate. To be a part of the activity, audit, review, meeting, or assessment.
+Perform. Software assurance does the action specified. Perform may include making 
+comparisons of independent results with similar activities performed by engineering; performing 
+audits; and reporting results to engineering.
+Product. A result of a physical, analytical, or another process. The item delivered to the 
+customer (e.g., hardware, software, test reports, data) and the processes (e.g., system 
+engineering, design, test, logistics) that make the product possible. (Source NASA-HDBK8709.22)
+Program. A strategic investment by a Mission Directorate or Mission Support Office that has a 
+defined architecture and technical approach, requirements, funding level, and management 
+structure that initiates and directs one or more projects. A program implements a strategic 
+direction that the Agency has identified as needed to accomplish Agency goals and objectives.
+(Source NPR 7120.5)
+NASA-STD-8739.8B
+15 of 70
+Program Manager. A generic term for the person who is formally assigned to be in charge of 
+the program. A program manager could be designated as a program lead, program director, or 
+some other term, as defined in the program's governing document. A program manager is 
+responsible for the formulation and implementation of the program, per the governing document 
+with the sponsoring MDAA.
+Project. A specific investment having defined goals, objectives, requirements, life cycle cost, a 
+beginning, and an end. A project yields new or revised products or services that directly address 
+NASA’s strategic needs. They may be performed wholly in-house; by Government, industry, 
+academia partnerships; or through contracts with private industry. (Source NPR 7150.2)
+Project Manager. The entity or individual who accepts the resulting software products. Project 
+managers are responsible and accountable for the safe conduct and successful outcome of their 
+program or project in conformance with governing programmatic requirements. The project 
+manager is usually NASA but can also refer to the prime contractor-subcontractor relationship as 
+well.
+Provider. A Provider is a NASA or contractor organization that is tasked by an accountable 
+organization (i.e., the Acquirer) to produce a product or service. (Source NASA-HDBK-8709.22)
+Regression testing. (1) selective retesting of a system or component to verify that modifications 
+have not caused unintended effects and that the system or component still complies with its 
+specified requirements (2) testing following modifications to a test item or its operational 
+environment, to identify whether regression failures occur. (Source IEEE Definition)
+Risk. The combination of (1) the probability (qualitative or quantitative) of experiencing an 
+undesired event, (2) the consequences, impact, or severity that would occur if the undesired 
+event were to occur, and (3) the uncertainties associated with the probability and consequences. 
+(Source NPR 8715.3)
+Note: A risk is an uncertain future event, or combination of events, that could threaten the 
+achievement of performance objectives or requirements. A "problem," on the other hand, 
+describes an issue that is certain or near certain to exist now, or an event that has been 
+determined with certainty or near certainty to have occurred and is threatening the achievement 
+of an objective or requirement. It is generally at the discretion of the decision authority to define 
+at what level of certainty (i.e., likelihood) an event may be classified and addressed as a 
+“problem” rather than as a “risk.” A risk may be conditional upon a problem, i.e., an existing 
+issue may or may not develop into performance-objective consequences or the extent to which it 
+may be at present uncertain.
+Risk Posture. A characterization of risk based on conditions (e.g., criticality, complexity, 
+environments, performance, cost, schedule) and a set of identified risks, taken as a whole which 
+allows an understanding of the overall risk or provides a target risk range or level, which can 
+then be used to support decisions being made. 
+Safe State. A system state in which hazards are inhibited, and all hazardous actuators are in a 
+non-hazardous state. The system can have more than one Safe State.
+NASA-STD-8739.8B
+16 of 70
+Safety. Freedom from those conditions that can cause death, injury, occupational illness, 
+damage to or loss of equipment or property, or damage to the environment. In a risk-informed 
+context, safety is an overall mission and program condition that provides sufficient assurance 
+that accidents will not result from the mission execution or program implementation, or, if they 
+occur, their consequences will be mitigated. This assurance is established by means of the 
+satisfaction of a combination of deterministic criteria and risk criteria. (Source NPR 8715.3)
+Safety Analysis. Generic term for a family of analyses, which includes but is not limited to, 
+preliminary hazard analysis, system (subsystem) hazard analysis, operating hazard analysis, 
+software hazard analysis, sneak circuit, and others. Software safety analysis consists of a number 
+of tools and techniques to identify safety risks and formulate effective controls. These techniques 
+are used to help identify the hazards during the Hazard Analysis process, which in turn identifies 
+the safety-critical software. The Safety Analysis techniques often used to support the Hazard 
+Analysis are the Software Fault Tree Analysis and the Software Failure Modes and Effects 
+Analysis. The Software Fault Tree Analysis and the Software Failure Modes and Effects 
+Analysis are used to help identify hazards, hazard causes, and potential failure modes. 
+Safety-Critical. A term describing any condition, event, operation, process, equipment, or 
+system that could cause or lead to severe injury, major damage, or mission failure if performed 
+or built improperly or allowed to remain uncorrected. (Source NPR 8715.3)
+Safety-Critical Software. Software is classified as safety-critical if the software is determined 
+by and traceable to a hazard analysis. Software is classified as safety-critical if it meets at least 
+one of the following criteria:
+a. Causes or contributes to a system hazardous condition/event, 
+b. Controls functions identified in a system hazard,
+c. Provides mitigation for a system hazardous condition/event,
+d. Mitigates damage if a hazardous condition/event occurs,
+e. Detects, reports, and takes corrective action if the system reaches a potentially hazardous state.
+Software. defined as (1) computer programs, procedures, and associated documentation and 
+data pertaining to the operation of a computer system (2) all or a part of the programs, 
+procedures, rules, and associated documentation of an information processing (3) program or set 
+of programs used to run a computer (4) all or part of the programs which process or support the 
+processing of digital information (5) part of a product that is the computer program or the set of 
+computer programs. This definition applies to software developed by NASA, software developed 
+for NASA, software maintained by or for NASA, Commercial-Off-The-Shelf (COTS), 
+Government-Off-The-Shelf (GOTS), Modified-Off-The-Shelf (MOTS), Open Source Software
+(OSS), reused software components, auto-generated code, embedded software, the software 
+executed on processors embedded in programmable logic devices (see NASA-HDBK-4008), 
+legacy, heritage, applications, freeware, shareware, trial or demonstration software, and OSS
+components. (Source NPR 7150.2) 
+NASA-STD-8739.8B
+17 of 70
+Software Assurance. (1) a set of activities that assess adherence to, and the adequacy of the 
+software processes used to develop and modify software products. Software assurance also 
+determines the degree to which the desired results from software quality control are being 
+obtained. (2) set of activities that define and assess the adequacy of software processes to provide 
+evidence that establishes confidence that the software processes are appropriate for and produce 
+software products of suitable quality for their intended purposes. (Source IEEE Definition)
+Note: A key attribute of software assurance is the objectivity of the software assurance function 
+with respect to the project.
+Software Developer. A person, organization, or system that develops software based on 
+program/project requirements.
+Software Life Cycle. The period that begins when a software product is conceived and ends 
+when the software is no longer available for use. The software life cycle typically includes a 
+concept phase, requirements phase, design phase, implementation phase, test phase, installation 
+and checkout phase, operation and maintenance phase, and sometimes, retirement phase.
+Software Peer Review. An examination of a software product to detect and identify software 
+anomalies, including errors and deviations from standards and specifications. (Source IEEE 
+Definition)
+Software Safety. The aspects of software engineering, system safety, and software assurance,
+that provide a systematic approach to identifying, analyzing, tracking, mitigating, and controlling 
+hazards and hazardous functions of a system where software may contribute either to the 
+hazard(s) or to its detection, mitigation or control, to ensure safe operation of the system.
+Software Validation. (1)confirmation, through the provision of objective evidence, that the 
+requirements for a specific intended use or application have been fulfilled (2) process of 
+providing evidence that the system, software, or hardware and its associated products satisfy 
+requirements allocated to it at the end of each life cycle activity, solve the right problem (e.g., 
+correctly model physical laws, implement business rules, and use the proper system 
+assumptions), and satisfy intended use and user needs (3) the assurance that a product, service, or 
+system meets the needs of the customer and other identified stakeholders (4) process of 
+evaluating a system or component during or at the end of the development process to determine 
+whether it satisfies specified requirements (5) confirmation in a timely manner, through 
+automated techniques where possible, through the provision of objective evidence, that the 
+requirements for a specific intended use or application have been fulfilled. (Source IEEE 
+Definition)
+Note: Validation in a system life cycle context is the set of activities ensuring and gaining 
+confidence that a system is able to accomplish its intended use, goals, and objectives (meet 
+stakeholder requirements) in the intended operational environment. The right system has been 
+built or is operating to meet business objectives. Validation demonstrates that the system can be 
+used by the users for their specific tasks. "Validated" is used to designate the corresponding 
+status. Multiple Validation can be carried out if there are different intended uses.
+NASA-STD-8739.8B
+18 of 70
+Software Verification. Confirmation that products properly reflect the requirements specified 
+for them. In other words, verification ensures that “you built it right.” (Source IEEE Definition)
+Supplier. Any organization which provides a product or service to a customer. By this 
+definition, suppliers may include vendors, subcontractors, contractors, flight programs/projects, 
+and the NASA organization supplying science data to a principal investigator. The classical 
+definition of a supplier is a subcontractor, at any tier, performing contract services or producing 
+the contract articles for a contractor. (Source NASA-HDBK-8709.22)
+System Safety. Application of engineering and management principles, criteria, and techniques 
+to optimize safety and reduce risks within the constraints of operational effectiveness, time, and 
+cost.
+Tailoring. The process used to adjust a prescribed requirement to accommodate the needs of a 
+specific task or activity (e.g., program or project). Tailoring may result in changes, subtractions, 
+or additions to a typical implementation of the requirement. (Source NPR 7150.2)
+Track. To follow and note the course or progress of the product.
+NASA-STD-8739.8B
+19 of 70
+4. SOFTWARE ASSURANCE AND SOFTWARE SAFETY
+REQUIREMENTS
+4.1 Software Assurance Description
+The Software Assurance activities provide a level of confidence that software is free 
+from vulnerabilities, either intentionally designed into the software or accidentally inserted at 
+any time during its life cycle, that the software functions in an intended manner, and that the 
+software does not function in an unintended manner. The objectives of the Software Assurance 
+and Software Safety Standard include the following:
+a. Ensuring that the processes, procedures, and products used to produce and sustain the 
+software conform to all specified requirements and standards that govern those processes, 
+procedures, and products.
+(a) A set of activities that assess adherence to, and the adequacy of the software 
+processes used to develop and modify software products. 
+(b) A set of activities that define and assess the adequacy of software processes to 
+provide evidence that establishes confidence that the software processes are appropriate 
+for and produce software products of suitable quality for their intended purposes. 
+b. Determining the degree of software quality obtained by the software products.
+c. Ensuring that the software systems are safe and that the software safety-critical requirements 
+are followed.
+d. Ensuring that the software systems are secure.
+e. Employing rigorous analysis and testing methodologies to identify objective evidence and 
+conclusions to provide an independent assessment of critical products and processes throughout 
+the life cycle.
+Project and SMA Management support of the software assurance function is essential 
+for software assurance, software safety, and IV&V processes to be effective. The software 
+assurance, software safety, and IV&V support include the following:
+a. The Project and SMA Management are familiar with and understand the software assurance, 
+software safety, and IV&V function’s purposes, concepts, practices, and needs.
+b. The Project and SMA Management provide the software assurance, software safety, and 
+IV&V activities with skilled resources (people, equipment, knowledge, methods, facilities, 
+and tools) to accomplish their project responsibilities.
+c. The Project and SMA Management act upon information provided by the software assurance, 
+software safety, and IV&V function throughout a project.
+NASA-STD-8739.8B
+20 of 70
+The Software Assurance and Software Safety Standard’s requirements apply to 
+organizations in their roles as both Acquirers and Providers. 
+4.2 Safety-Critical Software Determination
+Software is classified as safety-critical if the software is determined by and traceable to
+a hazard analysis. Software is classified as safety-critical if it meets at least one of the following 
+criteria:
+a. Causes or contributes to a system hazardous condition/event, 
+b. Controls functions identified in a system hazard,
+c. Provides mitigation for a system hazardous condition/event,
+d. Mitigates damage if a hazardous condition/event occurs,
+e. Detects, reports, and takes corrective action if the system reaches a potentially hazardous state.
+Note: See Appendix A for guidelines associated with addressing software in hazard definitions.
+See Table 1, 3.7.1, SWE-205 for more details. Consideration for other independent means of 
+protection (software, hardware, barriers, or administrative) should be a part of the system 
+hazard definition process.
+4.3 Software Assurance and Software Safety Requirements
+The responsible project manager shall ensure the performance of the software 
+assurance, software safety, and IV&V activities, the applicable requirements are defined in Table 
+1. In this document, the phrase “Software Assurance and Software Safety Tasks” means that the 
+roles and responsibilities for completing these requirements may be delegated within the project
+consistent with the scope and scale of the project. The Center SMA Director designates SMA 
+TA(s) for programs, facilities, and projects, providing direction, functional oversight, and 
+assessment for all Agency software assurance, software safety, and IV&V activities. 
+NASA-STD-8739.8B
+21 of 70
+Table 1. Software Assurance and Software Safety Requirements Mapping Matrix
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3 Software Management Requirements
+3.1 Software Life Cycle Planning
+3.1.2 033 The project manager shall assess options for 
+software acquisition versus development.
+a. Acquire an off-the-shelf software product that 
+satisfies the requirement.
+b. Develop a software product or obtain the 
+software service internally.
+c. Develop the software product or obtain the 
+software service through contract.
+d. Enhance an existing software product or
+service.
+e. Reuse an existing software product or service.
+f. Source code available external to NASA.
+1. Confirm that the options for software acquisition 
+versus development have been evaluated. 
+2. Confirm the flow down of applicable software 
+engineering, software assurance, and software safety
+requirements on all acquisition activities. (NPR 
+7150.2 and NASA-STD-8739.8).
+3. Assess any risks with acquisition versus 
+development decision(s). 
+3.1.3 013 The project manager shall develop, maintain, and 
+execute software plans, including security plans,
+that cover the entire software life cycle and, as a 
+minimum, address the requirements of this 
+directive with approved tailoring. 
+1. Confirm that all plans, including security plans, are 
+in place and have expected content for the life cycle 
+events, with proper tailoring for the classification of 
+the software. 
+2. Develop and maintain a Software Assurance Plan 
+following the content defined in NASA-HDBK-2203 
+for a software assurance plan, including software 
+safety.
+3.1.4 024 The project manager shall track the actual results 
+and performance of software activities against the 
+software plans. 
+a. Corrective actions are taken, recorded, and 
+managed to closure. 
+b. Changes to commitments (e.g., software plans) 
+1. Assess plans for compliance with NPR 7150.2 
+requirements, NASA-STD-8739.8, including changes 
+to commitments. 
+2. Confirm that closure of corrective actions 
+associated with the performance of software activities 
+NASA-STD-8739.8B
+22 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+that have been agreed to by the affected groups 
+and individuals are taken, recorded, and 
+managed.
+against the software plans, including closure 
+rationale.
+3. Confirm changes to commitments are recorded and 
+managed.
+3.1.5 034 The project manager shall define and document 
+the acceptance criteria for the software.
+1. Confirm software acceptance criteria are defined 
+and assess the criteria based on guidance in the 
+NASA Software Engineering Handbook, NASAHDBK-2203.
+3.1.6 036 The project manager shall establish and maintain 
+the software processes, software documentation 
+plans, list of developed electronic products, 
+deliverables, and list of tasks for the software 
+development that are required for the project’s 
+software developers, as well as the action 
+required (e.g., approval, review) of the 
+Government upon receipt of each of the 
+deliverables.
+1. Confirm the following are approved, implemented, 
+and updated per requirements:
+a. Software processes, including software assurance, 
+software safety, and IV&V processes,
+b. Software documentation plans, 
+c. List of developed electronic products, deliverables, 
+and 
+d. List of tasks required or needed for the project’s
+software development.
+2. Confirm that any required government actions are 
+established and performed upon receipt of 
+deliverables (e.g., approvals, reviews).
+3.1.7 037 The project manager shall define and document 
+the milestones at which the software developer(s) 
+progress will be reviewed and audited.
+1. Confirm that milestones for reviewing and auditing 
+software developer progress are defined and 
+documented. 
+2. Participate in project milestones reviews.
+3.1.8 039 The project manager shall require the software 
+developer(s) to periodically report status and 
+provide insight into software development and 
+test activities; at a minimum, the software 
+developer(s) will be required to allow the project 
+manager and software assurance personnel to: 
+1. Confirm that software developer(s) periodically 
+report status and provide insight to the project 
+manager.
+2. Monitor product integration.
+3. Analyze the verification activities to ensure 
+adequacy.
+NASA-STD-8739.8B
+23 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+a. Monitor product integration.
+b. Review the verification activities to ensure 
+adequacy.
+c. Review trade studies and source data.
+d. Audit the software development processes and 
+practices.
+e. Participate in software reviews and technical 
+interchange meetings.
+4. Assess trade studies, source data, software reviews,
+and technical interchange meetings.
+5. Perform audits on software development processes 
+and practices at least once every two years. 
+6. Develop and provide status reports.
+7. Develop and maintain a list of all software 
+assurance review discrepancies, risks, issues, 
+findings, and concerns.
+8. Confirm that the project manager provides 
+responses to software assurance and software safety
+submitted issues, findings, and risks and that the 
+project manager tracks software assurance and 
+software safety issues, findings, and risks to closure.
+3.1.9 040 The project manager shall require the software 
+developer(s) to provide NASA with software 
+products, traceability, software change tracking 
+information and nonconformances, in electronic 
+format, including software development and 
+management metrics. 
+1. Confirm that software artifacts are available in 
+electronic format to NASA.
+3.1.10 042 The project manager shall require the software 
+developer(s) to provide NASA with electronic 
+access to the source code developed for the 
+project in a modifiable format. 
+1. Confirm that software developers provide NASA 
+with electronic access to the source code generated 
+for the project in a modifiable form.
+3.1.11 139 The project manager shall comply with the 
+requirements in this NPR that are marked with an 
+”X” in Appendix C consistent with their software 
+classification. 
+1. Assess that the project's software requirements, 
+products, procedures, and processes are compliant 
+with the NPR 7150.2 requirements per the software 
+classification and safety criticality for software.
+NASA-STD-8739.8B
+24 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.1.12 121 Where approved, the project manager shall 
+document and reflect the tailored requirement in 
+the plans or procedures controlling the 
+development, acquisition, and deployment of the 
+affected software. 
+1. Confirm that any requirement tailoring in the 
+Requirements Mapping Matrix has the required 
+approvals.
+2. Develop a tailoring matrix of software assurance 
+and software safety requirements.
+3.1.13 125 Each project manager with software components 
+shall maintain a requirements mapping matrix or 
+multiple requirements mapping matrices against 
+requirements in this NPR, including those 
+delegated to other parties or accomplished by 
+contract vehicles or Space Act Agreements. 
+1. Confirm that the project maintains a requirements
+mapping matrix (matrices) for all requirements in 
+NPR 7150.2.
+2. Maintain the requirements mapping matrix 
+(matrices) for requirements in NASA-STD-8739.8.
+3.1.14 027 The project manager shall satisfy the following 
+conditions when a COTS, GOTS,MOTS, OSS, or 
+reused software component is acquired or used:
+a. The requirements to be met by the software 
+component are identified. 
+b. The software component includes 
+documentation to fulfill its intended purpose 
+(e.g., usage instructions). 
+c. Proprietary rights, usage rights, ownership, 
+warranty, licensing rights, transfer rights, and 
+conditions of use (e.g., required copyright, 
+author, and applicable license notices within the 
+software code, or a requirement to redistribute the 
+licensed software only under the same license 
+(e.g., GNU GPL, ver. 3, license)) have been 
+addressed and coordinated with Center 
+Intellectual Property Counsel. 
+d. Future support for the software product is 
+planned and adequate for project needs.
+1. Confirm that the conditions listed in "a" through 
+"f" are complete for any COTS, GOTS, MOTS, OSS, 
+or reused software that is acquired or used.
+NASA-STD-8739.8B
+25 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+e. The software component is verified and 
+validated to the same level required to accept a 
+similar developed software component for its 
+intended use.
+f. The project has a plan to perform periodic 
+assessments of vendor reported defects to ensure 
+the defects do not impact the selected software 
+components.
+3.2 Software Cost Estimation
+3.2.1 015 To better estimate the cost of development, the 
+project manager shall establish, document, and 
+maintain: 
+a. Two cost estimate models and associated cost 
+parameters for all Class A and B software 
+projects that have an estimated project cost of $2 
+million or more. 
+b. One software cost estimate model and 
+associated cost parameter(s) for all Class A and 
+Class B software projects that have an estimated 
+project cost of less than $2 million.
+c. One software cost estimate model and 
+associated cost parameter(s) for all Class C and 
+Class D software projects.
+d. One software cost estimate model and 
+associated cost parameter(s) for all Class F 
+software projects.
+1. Confirm that the required number of software cost 
+estimates are complete and include software 
+assurance cost estimate(s) for the project, including a 
+cost estimate associated with handling safety-critical 
+software and safety-critical data.
+NASA-STD-8739.8B
+26 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.2.2 151 The project manager’s software cost estimate(s) 
+shall satisfy the following conditions: 
+a. Covers the entire software life cycle.
+b. Is based on selected project attributes (e.g., 
+programmatic assumptions/constraints, 
+assessment of the size, functionality, complexity, 
+criticality, reuse code, modified code, and risk of 
+the software processes and products).
+c. Is based on the cost implications of the 
+technology to be used and the required 
+maturation of that technology.
+d. Incorporates risk and uncertainty, including
+end state risk and threat assessments for
+cybersecurity.
+e. Includes the cost of the required software 
+assurance support.
+f. Includes other direct costs. 
+1. Assess the project's software cost estimate(s) to 
+determine if the stated criteria listed in "a" through 
+"f" are satisfied.
+3.2.3 174 The project manager shall submit software 
+planning parameters, including size and effort 
+estimates, milestones, and characteristics, to the 
+Center measurement repository at the conclusion 
+of major milestones.
+1. Confirm that all the software planning parameters, 
+including size and effort estimates, milestones, and 
+characteristics, are submitted to a Center repository.
+2. Confirm that all software assurance and software 
+safety software estimates and planning parameters 
+are submitted to an organizational repository.
+3.3 Software Schedules
+NASA-STD-8739.8B
+27 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.3.1 016 The project manager shall document and 
+maintain a software schedule that satisfies the 
+following conditions: 
+a. Coordinates with the overall project schedule.
+b. Documents the interactions of milestones and 
+deliverables between software, hardware, 
+operations, and the rest of the system. 
+c. Reflects the critical dependencies for software 
+development activities.
+d. Identifies and accounts for dependencies with 
+other projects and cross-program dependencies. 
+1. Assess that the software schedule satisfies the 
+conditions in the requirement.
+2. Develop a software assurance schedule, including 
+software assurance products, audits, reporting, and 
+reviews.
+3.3.2 018 The project manager shall regularly hold reviews 
+of software schedule activities, status, 
+performance metrics, and assessment/analysis 
+results with the project stakeholders and track 
+issues to resolution.
+1. Confirm the generation and distribution of periodic 
+reports on software schedule activities, metrics, and 
+status, including reports of software assurance and 
+software safety schedule activities, metrics, and 
+status.
+2. Confirm closure of any project software schedule 
+issues.
+3.3.3 046 The project manager shall require the software 
+developer(s) to provide a software schedule for 
+the project's review, and schedule updates as 
+requested. 
+1. Confirm the project's schedules, including the 
+software assurance’s/software safety’s schedules, are
+updated.
+3.4 Software Training
+3.4.1 017 The project manager shall plan, track, and ensure 
+project specific software training for project 
+personnel.
+1. Confirm that any project-specific software training 
+has been planned, tracked, and completed for project 
+personnel, including software assurance and software 
+safety personnel.
+2. Confirm that software assurance and software 
+safety personnel have completed the appropriate 
+NASA-STD-8739.8B
+28 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+software assurance and/or software safety training to 
+satisfactorily conduct assurance and safety activities.
+3.5 Software Classification Assessments
+3.5.1 020 The project manager shall classify each system 
+and subsystem containing software in accordance 
+with the highest applicable software classification 
+definitions for Classes A, B, C, D, E, and F 
+software in Appendix D.
+1. Perform a software classification or concur with 
+the engineering software classification of software 
+per the descriptions in NPR 7150.2.
+3.5.2 176 The project manager shall maintain records of 
+each software classification determination, each 
+software Requirements Mapping Matrix, and the 
+results of each software independent 
+classification assessments for the life of the 
+project.
+1. Confirm that records of the software Requirements 
+Mapping Matrix and each software classification are 
+maintained and updated for the life of the project.
+3.6 Software Assurance and Software Independent 
+Verification & Validation
+3.6.1 022 The project manager shall plan and implement 
+software assurance, software safety and IV&V (if 
+required) per NASA-STD-8739.8, Software 
+Assurance and Software Safety Standard.
+1. Perform software assurance, software safety, and 
+IV&V (if required) according to the software 
+assurance and software safety standard requirements 
+in NASA-STD-8739.8, Software Assurance and 
+Software Safety Standard, and the Project’s software 
+assurance plan.
+3.6.2 141 For projects reaching Key Decision Point A, the 
+program manager shall ensure that software 
+IV&V is performed on the following categories 
+of projects: 
+a. Category 1 projects as defined in NPR 7120.5.
+b. Category 2 projects as defined in NPR 7120.5 
+that have Class A or Class B payload risk 
+1. Confirm that IV&V requirements (section 4.4) are 
+complete on projects required to have IV&V.
+NASA-STD-8739.8B
+29 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+classification per NPR 8705.4, Risk 
+Classification for NASA Payloads.
+c. Projects selected explicitly by the Mission 
+Directorate Associate Administrator to have 
+software IV&V.
+3.6.3 131 If software IV&V is required for a project, the 
+project manager, in consultation with NASA 
+IV&V, shall ensure an IPEP is developed, 
+approved, maintained, and executed in 
+accordance with IV&V requirements in NASASTD-8739.8.
+1. Confirm that the IV&V Project Execution Plan
+(IPEP) exists.
+3.6.4 178 If software IV&V is performed on a project, the 
+project manager shall ensure that IV&V is 
+provided access to development artifacts, 
+products, source code, and data required to 
+perform the IV&V analysis efficiently and 
+effectively. 
+1. Confirm that IV&V has access to the software 
+development artifacts, products, source code, and 
+data required to perform the IV&V analysis 
+efficiently and effectively.
+3.6.5 179 If software IV&V is performed on a project, the 
+project manager shall provide responses to IV&V 
+submitted issues and risks, and track these issues 
+and risks to closure.
+1. Confirm that the project manager responds to 
+IV&V submitted issues, findings, and risks and that 
+the project manager tracks IV&V issues, findings,
+and risks to closure.
+3.7 Safety-Critical and Mission-Critical Software
+3.7.1 205 The project manager, in conjunction with the 
+SMA organization, shall determine if each 
+software component is considered to be safetycritical per the criteria defined in NASA-STD8739.8.
+1. Confirm that the hazard reports or safety data 
+packages contain all known software contributions or 
+events where software, either by its action, inaction,
+or incorrect action, leads to a hazard.
+2. Assess that the hazard reports identify the software 
+components associated with the system hazards per 
+the criteria defined in NASA-STD-8739.8, Appendix 
+A.
+NASA-STD-8739.8B
+30 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3. Assess that hazard analyses (including hazard 
+reports) identify the software components associated 
+with the system hazards per the criteria defined in 
+NASA-STD-8739.8, Appendix A.
+4. Confirm that the traceability between software 
+requirements and hazards with software contributions 
+exists.
+5. Develop and maintain a software safety analysis 
+throughout the software development life cycle.
+3.7.2 023 If a project has safety-critical software, the 
+project manager shall implement the safetycritical software requirements contained in 
+NASA-STD-8739.8. 
+1. Confirm that the identified safety-critical software 
+components and data have implemented the safetycritical software assurance requirements listed in this 
+standard. 
+3.7.3 134 If a project has safety-critical software or 
+mission-critical software, the project manager 
+shall implement the following items in the 
+software:
+a. The software is initialized, at first start and 
+restarts, to a known safe state.
+b. The software safely transitions between all 
+predefined known states.
+c. Termination performed by software functions 
+is performed to a known safe state.
+d. Operator overrides of software functions 
+require at least two independent actions by an 
+operator.
+e. Software rejects commands received out of 
+sequence when execution of those commands out 
+of sequence can cause a hazard.
+f. The software detects inadvertent memory 
+1. Analyze the software requirements and the 
+software design and work with the project to 
+implement NPR 7150.2 requirement items "a" 
+through "l."
+2. Assess that the source code satisfies the conditions 
+in the NPR 7150.2 requirement "a" through "l" for 
+safety-critical and mission-critical software at each 
+code inspection, test review, safety review, and 
+project review milestone. 
+3. Confirm that the values of the safety-critical 
+loaded data, uplinked data, rules, and scripts that 
+affect hazardous system behavior have been tested.
+4. Analyze the software design to ensure the 
+following:
+a. Use of partitioning or isolation methods in the 
+design and code, 
+NASA-STD-8739.8B
+31 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+modification and recovers to a known safe state.
+g. The software performs integrity checks on 
+inputs and outputs to/from the software system.
+h. The software performs prerequisite checks 
+prior to the execution of safety-critical software 
+commands.
+i. No single software event or action is allowed to 
+initiate an identified hazard.
+j. The software responds to an off-nominal 
+condition within the time needed to prevent a 
+hazardous event.
+k. The software provides error handling. 
+l. The software can place the system into a safe 
+state.
+b. That the design logically isolates the safety-critical 
+design elements and data from those that are nonsafety-critical.
+5. Participate in software reviews affecting safetycritical software products.
+6. Ensure the SWE-134 implementation supports and 
+is consistent with the system hazard analysis.
+3.7.4 219 If a project has safety-critical software, the 
+project manager shall ensure that there is 100
+percent code test coverage using the Modified 
+Condition/Decision Coverage (MC/DC) criterion 
+for all identified safety-critical software 
+components.
+1. Confirm that 100% code test coverage is addressed 
+for all identified safety-critical software components 
+or that software developers provide a technically 
+acceptable rationale or a risk assessment explaining 
+why the test coverage is not possible or why the risk 
+does not justify the cost of increasing coverage for 
+the safety-critical code component.
+3.7.5 220 If a project has safety-critical software, the 
+project manager shall ensure all identified safetycritical software components have a cyclomatic 
+complexity value of 15 or lower. Any exceedance 
+shall be reviewed and waived with rationale by 
+the project manager or technical approval 
+authority.
+1. Perform or analyze Cyclomatic Complexity 
+metrics on all identified safety-critical software 
+components.
+2. Confirm that all identified safety-critical software 
+components have a cyclomatic complexity value of 
+15 or lower. If not, assure that software developers 
+provide a technically acceptable risk assessment, 
+accepted by the proper technical authority, explaining 
+why the cyclomatic complexity value needs to be 
+NASA-STD-8739.8B
+32 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+higher than 15 and why the software component 
+cannot be structured to be lower than 15 or why the 
+cost and risk of reducing the complexity to below 15 
+are not justified by the risk inherent in modifying the 
+software component.
+3.8 Automatic Generation of Software Source Code
+3.8.1 146 The project manager shall define the approach to 
+the automatic generation of software source code, 
+including: 
+a. Validation and verification of auto-generation 
+tools.
+b. Configuration management of the autogeneration tools and associated data.
+c. Description of the limits and the allowable 
+scope for the use of the auto-generated software.
+d. Verification and validation of auto-generated 
+source code using the same software standards 
+and processes as hand-generated code.
+e. Monitoring the actual use of auto-generated 
+source code compared to the planned use.
+f. Policies and procedures for making manual 
+changes to auto-generated source code.
+g. Configuration management of the input to the 
+auto-generation tool, the output of the autogeneration tool, and modifications made to the 
+output of the auto-generation tools.
+1. Assess that the approach for the auto-generation 
+software source code is defined, and the approach 
+satisfies at least the conditions “a” through “g.”
+NASA-STD-8739.8B
+33 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.8.2 206 The project manager shall require the software 
+developers and custom software suppliers to 
+provide NASA with electronic access to the 
+models, simulations, and associated data used as 
+inputs for auto-generation of software. 
+1. Confirm that NASA, engineering, project, software 
+assurance, and IV&V have electronic access to the 
+models, simulations, and associated data used as 
+inputs for auto-generation of software. 
+3.9 Software Development Processes and Practices
+3.9.2 032 The project manager shall acquire, develop, and 
+maintain software from an organization with a 
+non-expired CMMI®-DEV rating as measured by 
+a CMMI® Institute Certified Lead Appraiser as 
+follows: 
+a. For Class A software: CMMI®-DEV Maturity, 
+Level 3 Rating, or higher for software.
+b. For Class B software (except Class B software 
+on NASA Class D payloads, as defined in NPR 
+8705.4): CMMI®-DEV Maturity Level 2 Rating 
+or higher for software. 
+1. Confirm that Class A and B software acquired, 
+developed, and maintained by NASA is performed by 
+an organization with a non-expired CMMI-DEV 
+rating, as per the NPR 7150.2 requirement.
+2. Assess potential process-related issues, findings, or 
+risks identified from the CMMI assessment findings.
+3. Perform audits on the software development and 
+software assurance processes.
+3.10 Software Reuse
+3.10.1 147 The project manager shall specify reusability 
+requirements that apply to its software 
+development activities to enable future reuse of 
+the software, including the models, simulations, 
+and associated data used as inputs for autogeneration of software, for U.S. Government 
+purposes.
+1. Confirm that the project has considered reusability 
+for its software development activities.
+NASA-STD-8739.8B
+34 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.10.2 148 The project manager shall evaluate software for 
+potential reuse by other projects across NASA 
+and contribute reuse candidates to the appropriate 
+NASA internal sharing and reuse software 
+system. However, if the project manager is not a 
+civil servant, then a civil servant will pre-approve 
+all such software contributions; all software 
+contributions should include, at a minimum, the 
+following information:
+a. Software Title.
+b. Software Description.
+c. The Civil Servant Software Technical POC for 
+the software product.
+d. The language or languages used to develop the 
+software.
+e. Any third-party code contained therein, and the 
+record of the requisite license or permission 
+received from the third party permitting the 
+Government’s use and any required markings 
+(e.g., required copyright, author, applicable 
+license notices within the software code, and the 
+source of each third-party software component 
+(e.g., software URL & license URL)), if 
+applicable.
+f. Release notes.
+1. Confirm that any project software contributed as a 
+reuse candidate has the identified information in 
+items “a” through “f.”
+3.11 Software Cybersecurity
+NASA-STD-8739.8B
+35 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.11.2 156 The project manager shall perform a software 
+cybersecurity assessment on the software 
+components per the Agency security policies and 
+the project requirements, including risks posed by 
+the use of COTS, GOTS, MOTS, OSS, or reused 
+software components.
+1. Confirm the project has performed a software 
+cybersecurity assessment on the software components 
+per the Agency security policies and the project 
+requirements, including risks posed by the use of 
+COTS, GOTS, MOTS, OSS, or reused software 
+components.
+3.11.3 154 The project manager shall identify cybersecurity 
+risks, along with their mitigations, in flight and 
+ground software systems, and plan the 
+mitigations for these systems. 
+1. Confirm that cybersecurity risks, along with their 
+mitigations, are identified and managed.
+3.11.4 157 The project manager shall implement protections 
+for software systems with communications 
+capabilities against unauthorized access per the 
+requirements contained in the NASA-STD-1006, 
+Space System Protection Standard.
+1. For software products with communications 
+capabilities, confirm that the software requirements, 
+software design documentation, and software 
+implementation address unauthorized access per the 
+requirements contained in the Space System 
+Protection Standard, NASA-STD-1006.
+3.11.5 159 The project manager shall test the software and 
+record test results for the required software 
+cybersecurity mitigation implementations 
+identified from the security vulnerabilities and 
+security weaknesses analysis.
+1. Confirm that testing is complete for the 
+cybersecurity mitigation.
+2. Assess the quality of the cybersecurity mitigation 
+implementation testing and the test results.
+3.11.6 207 The project manager shall identify, record, and 
+implement secure coding practices.
+1. Assess that the software coding guidelines (e.g., 
+coding standards) includes secure coding practices.
+3.11.7 185 The project manager shall verify that the software 
+code meets the project’s secure coding standard 
+by using the results from static analysis tool(s).
+1. Analyze the engineering data or perform
+independent static code analysis to verify that the 
+code meets the project’s secure coding standard 
+requirements.
+NASA-STD-8739.8B
+36 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3.11.8 210 The project manager shall identify software 
+requirements for the collection, reporting, and 
+storage of data relating to the detection of 
+adversarial actions.
+1. Confirm that the software requirements exist for 
+collecting, reporting, and storing data relating to the 
+detection of adversarial actions.
+3.12 Software Bi-Directional Traceability
+3.12.1 052 The project manager shall perform, record, and 
+maintain bi-directional traceability between the 
+following software elements:
+Bi-directional Traceability
+Class 
+A, B, 
+and C
+Class 
+D
+Class
+F
+Higher-level requirements 
+to the software requirements
+X X
+Software requirements to 
+the system hazards
+X X
+Software requirements to 
+the software design 
+components
+X
+Software design 
+components to the software 
+code
+X
+Software requirements to 
+the software verification(s)
+X X X
+Software requirements to 
+the software nonconformances
+X X X
+1. Confirm that bi-directional traceability has been 
+completed, recorded, and maintained.
+2. Confirm that the software traceability includes 
+traceability to any hazard that includes software.
+4 Software Engineering (Life Cycle) Requirements
+4.1 Software Requirements
+NASA-STD-8739.8B
+37 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4.1.2 050 The project manager shall establish, capture, 
+record, approve, and maintain software 
+requirements, including requirements for COTS, 
+GOTS, MOTS, OSS, or reused software 
+components, as part of the technical specification.
+1. Confirm that all software requirements are 
+established, captured, and documented as part of the 
+technical specification, including requirements for 
+COTS, GOTS, MOTS, OSS, or reused software 
+components. 
+4.1.3 051 The project manager shall perform software 
+requirements analysis based on flowed-down and 
+derived requirements from the top-level systems 
+engineering requirements, safety and reliability 
+analyses, and the hardware specifications and 
+design.
+1. Perform a software assurance analysis on the 
+detailed software requirements to analyze the 
+software requirement sources and identify any 
+incorrect, missing, or incomplete requirements.
+4.1.4 184 The project manager shall include software 
+related safety constraints, controls, mitigations, 
+and assumptions between the hardware, operator, 
+and software in the software requirements 
+documentation.
+1. Analyze and confirm that the software 
+requirements documentation contains the software 
+related safety constraints, controls, mitigations, and 
+assumptions between the hardware, operator, and the 
+software.
+4.1.5 053 The project manager shall track and manage 
+changes to the software requirements.
+1. Confirm the software requirements changes are 
+documented, tracked, approved, and maintained 
+throughout the project life cycle. 
+4.1.6 054 The project manager shall identify, initiate 
+corrective actions, and track until closure 
+inconsistencies among requirements, project 
+plans, and software products.
+1. Monitor identified differences among 
+requirements, project plans, and software products 
+and confirm differences are addressed and corrective 
+actions are tracked until closure.
+4.1.7 055 The project manager shall perform requirements 
+validation to ensure that the software will 
+perform as intended in the customer environment.
+1. Confirm that the project software testing has 
+shown that software will function as expected in the 
+customer environment.
+4.2 Software Architecture
+NASA-STD-8739.8B
+38 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4.2.3 057 The project manager shall transform the 
+requirements for the software into a recorded 
+software architecture.
+1. Assess that the software architecture addresses or 
+contains the software structure, qualities, interfaces, 
+and external/internal components. 
+2. Analyze the software architecture to assess 
+whether software safety and mission assurance 
+requirements are met.
+4.2.4 143 The project manager shall perform a software 
+architecture review on the following categories of 
+projects:
+a. Category 1 Projects as defined in NPR 7120.5.
+b. Category 2 Projects as defined in NPR 7120.5 
+that have Class A or Class B payload risk 
+classification per NPR 8705.4.
+1. Assess the results of or participate in software 
+architecture review activities held by the project.
+4.3 Software Design
+4.3.2 058 The project manager shall develop, record, and 
+maintain a software design based on the software 
+architectural design that describes the lower-level 
+units so that they can be coded, compiled, and 
+tested.
+1. Assess the software design against the hardware 
+and software requirements and identify any gaps.
+2. Assess the software design to verify that the design 
+is consistent with the software architectural design
+concepts and that the software design describes the 
+lower-level units to be coded, compiled, and tested. 
+3. Assess that the design does not introduce 
+undesirable behaviors or unnecessary capabilities.
+4. Confirm that the software design implements all of 
+the required safety-critical functions and 
+requirements. 
+5. Perform a software assurance design analysis.
+4.4 Software Implementation
+NASA-STD-8739.8B
+39 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4.4.2 060 The project manager shall implement the 
+software design into software code.
+1. Confirm that the software code implements the 
+software designs. 
+2. Confirm that the code does not contain 
+functionality not defined in the design or 
+requirements.
+4.4.3 061 The project manager shall select, define, and 
+adhere to software coding methods, standards, 
+and criteria.
+1. Assure the project manager selected and/or defined 
+software coding methods, standards, and criteria.
+2. Analyze that the software code conforms to all 
+required software coding methods, rules, and 
+principles.
+4.4.4 135 The project manager shall use static analysis 
+tools to analyze the code during the development 
+and testing phases to, at a minimum, detect 
+defects, software security, code coverage, and 
+software complexity.
+1. Analyze the engineering data or perform 
+independent static code analysis to check for code 
+detects defects, software quality objectives, code 
+coverage objectives, software complexity values, and 
+software security objectives.
+2. Confirm the static analysis tool(s) are used with 
+checkers to identify security and coding errors and 
+defects.
+3. Assess that the project addresses the results from 
+the static analysis tools used by software assurance, 
+software safety, engineering, or the project.
+4. Confirm that the software code has been scanned 
+for security defects and confirm the result.
+5. Per SWE-219 for safety-critical software, verify 
+code coverage and approved waivers.
+6. Per SWE-220 for safety-critical software, verify 
+cyclomatic complexity and approved waivers.
+7. Confirm that Software Quality Objectives or 
+software quality threshold levels are defined and set 
+NASA-STD-8739.8B
+40 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+for static code analysis defects, checks, or software 
+security objectives.
+4.4.5 062 The project manager shall unit test the software 
+code.
+1. Confirm that the project successfully executes the 
+required unit tests, particularly those testing safetycritical functions.
+2. Confirm that the project addresses or otherwise 
+tracks to closure errors, defects, or problem reports
+found during unit testing.
+4.4.6 186 The project manager shall assure that the unit test 
+results are repeatable.
+1. Confirm that the project maintains the procedures, 
+scripts, results, and data needed to repeat the unit 
+testing (e.g., as-run scripts, test procedures, results).
+4.4.7 063 The project manager shall provide a software 
+version description for each software release.
+1. Confirm that the project creates a correct software 
+version description for each software release.
+2. For each software release, confirm that the 
+software has been scanned for security defects and 
+coding standard compliance and confirm the results.
+4.4.8 136 The project manager shall validate and accredit 
+the software tool(s) required to develop or 
+maintain software.
+1. Confirm that the software tool(s) needed to create 
+and maintain software is validated and accredited.
+4.5 Software Testing
+4.5.2 065a The project manager shall establish and maintain:
+a. Software test plan(s).
+…
+1. Confirm that software test plans have been 
+established, contain correct content, and are 
+maintained.
+2. Confirm that the software test plan addresses the 
+verification of safety-critical software, specifically 
+the off-nominal scenarios.
+NASA-STD-8739.8B
+41 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4.5.2 065b The project manager shall establish and maintain:
+...
+b. Software test procedure(s).
+…
+1. Confirm that the test procedures have been 
+established and are updated when changes to tests or 
+requirements occur.
+2. Analyze the software test procedures for the 
+following: 
+a. Coverage of the software requirements.
+b. Acceptance or pass/fail criteria, 
+c. The inclusion of operational and off-nominal 
+conditions, including boundary conditions, 
+d. Requirements coverage and hazards per SWE-066 
+and SWE-192, respectively.
+e. Requirements coverage for cybersecurity per 
+SWE-157 and SWE-210.
+4.5.2 065c The project manager shall establish and maintain:
+...
+c. Software test(s), including any code 
+specifically written to perform test procedures.
+…
+1. Confirm that the project creates and maintains any 
+code specifically written to perform test procedures 
+in a software configuration management system.
+2. Confirm that the project records all issues and 
+discrepancies in the code specifically written to 
+perform test procedures.
+3. Confirm that the project tracks to closure errors 
+and defects found in the code specifically written to 
+perform test procedures.
+4.5.2 065d The project manager shall establish and maintain:
+...
+d. Software test report(s).
+1. Confirm that the project creates and maintains the 
+test reports throughout software integration and test.
+2. Confirm that the project records the test report data
+and that the data contains the as-run test data, the test 
+results, and required approvals.
+3. Confirm that the project records all issues and 
+discrepancies found during each test.
+NASA-STD-8739.8B
+42 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4. Confirm that the project tracks to closure errors 
+and defects found during testing.
+4.5.3 066 The project manager shall test the software 
+against its requirements.
+1. Confirm test coverage of the requirements through 
+the execution of the test procedures. 
+2. Perform test witnessing for safety-critical software.
+3. Confirm that any newly identified software 
+contributions to hazards, events, or conditions found 
+during testing are in the system safety data package.
+4.5.4 187 The project manager shall place software items 
+under configuration management prior to testing.
+1. Confirm that software items to be tested are under 
+configuration management before the start of testing.
+2. Confirm the project maintains the software items 
+under configuration management through the 
+completion of testing.
+4.5.5 068 The project manager shall evaluate test results 
+and record the evaluation.
+1. Confirm that test results are assessed and recorded. 
+2. Confirm that the project documents software nonconformances in a tracking system.
+3. Confirm that test results are sufficient verification 
+artifacts for the hazard reports.
+4.5.6 070 The project manager shall use validated and 
+accredited software models, simulations, and 
+analysis tools required to perform qualification of 
+flight software or flight equipment.
+1. Confirm that the software models, simulations, and 
+analysis tools used to achieve the qualification of 
+flight software or flight equipment have been 
+validated and accredited.
+4.5.7 071 The project manager shall update the software 
+test and verification plan(s) and procedure(s) to 
+be consistent with software requirements.
+1. Analyze that software test plans and software test 
+procedures cover the software requirements and 
+provide adequate verification of hazard controls, 
+specifically the off-nominal scenarios.
+4.5.8 073 The project manager shall validate the software 
+system on the targeted platform or high-fidelity 
+simulation.
+1. Confirm that the project validates the software 
+components on the targeted platform or a highfidelity simulation.
+NASA-STD-8739.8B
+43 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4.5.9 189 The project manager shall ensure that the code 
+coverage measurements for the software are 
+selected, implemented, tracked, recorded, and 
+reported. 
+1. Confirm that code coverage measurements have 
+been selected, performed, tracked, recorded, and 
+communicated with each release.
+4.5.10 190 The project manager shall verify code coverage is 
+measured by analysis of the results of the 
+execution of tests.
+1. Confirm that the project performs code coverage 
+analysis using the results of the tests or a code 
+coverage tool.
+2. Analyze the code coverage measurements to 
+identify uncovered software code.
+3. Assess any uncovered software code for potential 
+risk, issues, or findings. 
+4.5.11 191 The project manager shall plan and conduct 
+software regression testing to demonstrate that 
+defects have not been introduced into previously 
+integrated or tested software and have not 
+produced a security vulnerability.
+1. Confirm that the project plans regression testing 
+and that the regression testing is adequate and
+includes retesting of all safety-critical code 
+components.
+2. Confirm that the project performs the planned 
+regression testing.
+3. Identify any risks and issues associated with the 
+regression test set selection and execution.
+4. Confirm that the regression test procedures are 
+updated to incorporate tests that validate the 
+correction of critical anomalies.
+4.5.12 192 The project manager shall verify through test the 
+software requirements that trace to a hazardous 
+event, cause, or mitigation technique. 
+1. Through testing, confirm that the project verifies 
+the software requirements which trace to a hazardous 
+event, cause, or mitigation techniques.
+4.5.13 193 The project manager shall develop acceptance 
+tests for loaded or uplinked data, rules, and code 
+that affects software and software system 
+behavior. 
+1. Confirm that the project develops acceptance tests 
+for loaded or uplinked data, rules, and code that 
+affect software and software system behavior.
+2. Confirm that the loaded or uplinked data, rules, 
+scripts, or code that affect software and software 
+NASA-STD-8739.8B
+44 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+system behavior are baselined in the software 
+configuration system.
+3. Confirm that loaded or uplinked data, rules, and 
+scripts are verified as correct prior to operations, 
+particularly for safety-critical operations.
+4.5.14 211 The project manager shall test embedded COTS, 
+GOTS, MOTS, OSS, or reused software 
+components to the same level required to accept a 
+custom developed software component for its 
+intended use. 
+1. Confirm that the project is testing COTS, GOTS, 
+MOTS, OSS, or reused software components to the 
+same level as developed software for its intended use.
+4.6 Software Operations, Maintenance, and 
+Retirement
+4.6.2 075 The project manager shall plan and implement 
+software operations, maintenance, and retirement 
+activities.
+1. Assess the maintenance, operations, and retirement 
+plans for completeness of the required software 
+engineering and software assurance activities.
+2. Confirm that the project implements software 
+operations, software maintenance, and software 
+retirement plans. 
+4.6.3 077 The project manager shall complete and deliver 
+the software product to the customer with 
+appropriate records, including as-built records, to 
+support the operations and maintenance phase of 
+the software’s life cycle.
+1. Confirm that the correct version of the products is 
+delivered, including as-built documentation and 
+project records. 
+2. Perform audits for all deliveries per the 
+configuration management processes to verify that all 
+products are being delivered and are the correct 
+versions.
+NASA-STD-8739.8B
+45 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+4.6.4 194 The project manager shall complete, prior to 
+delivery, verification that all software 
+requirements identified for this delivery have 
+been met or dispositioned, that all approved 
+changes have been implemented and that all 
+defects designated for resolution prior to delivery 
+have been resolved.
+1. Confirm that the project has identified the software 
+requirements to be met, the approved changes to be 
+implemented, and defects to be resolved for each 
+delivery. 
+2. Confirm that the project has met all software 
+requirements identified for delivery. 
+3. Confirm requirements once planned for delivery 
+but no longer appearing in delivery documentation 
+have been dispositioned.
+4. Confirm that approved changes have been 
+implemented and tested.
+5. Confirm that the approved changes to be 
+implemented and the defects to be resolved have 
+been resolved. 
+6. Approve or sign off on the projects delivered 
+products.
+4.6.5 195 The project manager shall maintain the software 
+using standards and processes, per the applicable 
+software classification throughout the 
+maintenance phase.
+1. Perform audits on the standards and processes used 
+throughout maintenance based on the software 
+classification.
+4.6.6 196 The project manager shall identify the records 
+and software tools to be archived, the location of 
+the archive, and procedures for access to the 
+products for software retirement or disposal.
+1. Confirm that the project has identified the records 
+and software tools for archival.
+2. Confirm that the project archives all software and 
+records selected for archival, as planned.
+5 Supporting Software Life Cycle Requirements
+5.1 Software Configuration Management
+NASA-STD-8739.8B
+46 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+5.1.2 079 The project manager shall develop a software 
+configuration management plan that describes the 
+functions, responsibilities, and authority for the 
+implementation of software configuration 
+management for the project.
+1. Assess that a software configuration management 
+plan has been developed and complies with the 
+requirements in NPR 7150.2 and Center/project 
+guidance.
+5.1.3 080 The project manager shall track and evaluate 
+changes to software products.
+1. Analyze proposed software and hardware changes 
+to software products for impacts, particularly safety 
+and security. 
+2. Confirm the following:
+a. The project tracks the changes.
+b. The changes are approved and documented before 
+implementation.
+c. The implementation of changes is complete.
+d. The project tests the changes.
+3. Confirm software changes follow the software 
+change control process.
+5.1.4 081 The project manager shall identify the software 
+configuration items (e.g., software records, code, 
+data, tools, models, scripts) and their versions to 
+be controlled for the project.
+1. Confirm that the project has identified the 
+configuration items and their versions to be 
+controlled.
+2. Assess that the software safety-critical items are 
+configuration-managed, including hazard reports and 
+safety analysis.
+5.1.5 082 The project manager shall establish and 
+implement procedures to: 
+a. Designate the levels of control through which 
+each identified software configuration item is 
+required to pass.
+b. Identify the persons or groups with authority to 
+authorize changes.
+1. Confirm that software assurance has participation 
+in software control activities.
+2. Perform an audit against the configuration 
+management procedures to confirm that the project 
+follows the established procedures. 
+NASA-STD-8739.8B
+47 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+c. Identify the persons or groups to make changes 
+at each level.
+5.1.6 083 The project manager shall prepare and maintain 
+records of the configuration status of software 
+configuration items.
+1. Confirm that the project maintains records of the 
+configuration status of the configuration items.
+5.1.7 084 The project manager shall perform software 
+configuration audits to determine the correct 
+version of the software configuration items and 
+verify that they conform to the records that define 
+them.
+1. Confirm that the project manager performed 
+software configuration audits to determine the correct 
+version of the software configuration items and verify 
+that the results of the audit conform to the records 
+that define them. 
+5.1.8 085 The project manager shall establish and 
+implement procedures for the storage, handling, 
+delivery, release, and maintenance of deliverable 
+software products.
+1. Confirm that the project establishes procedures for 
+storage, processing, distribution, release, and support 
+of deliverable software products.
+2. Perform audits on the project to ensure that the 
+project follows defined procedures for deliverable 
+software products.
+5.1.9 045 The project manager shall participate in any joint 
+NASA/developer audits. 
+1. Participate in or assess the results from any joint 
+NASA/developer audits. Track any findings to 
+closure.
+5.2 Software Risk Management
+5.2.1 086 The project manager shall record, analyze, plan, 
+track, control, and communicate all of the 
+software risks and mitigation plans. 
+1. Confirm and assess that a risk management process 
+includes recording, analyzing, planning, tracking, 
+controlling, and communicating all software risks and 
+mitigation plans. 
+2. Perform audits on the risk management process for 
+the software activities.
+5.3 Software Peer Reviews/Inspections
+NASA-STD-8739.8B
+48 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+5.3.2 087 The project manager shall perform and report the 
+results of software peer reviews or software 
+inspections for: 
+a. Software requirements. 
+b. Software plans, including cybersecurity.
+c. Any design items that the project identified for 
+software peer review or software inspections 
+according to the software development plans.
+d. Software code as defined in the software and 
+or project plans.
+e. Software test procedures.
+1. Confirm that software peer reviews are performed 
+and reported on for project activities.
+2. Confirm that the project addresses the accepted 
+software peer review findings.
+3. Perform peer reviews on software assurance and 
+software safety plans.
+4. Confirm that the source code satisfies the 
+conditions in the NPR 7150.2 requirement SWE-134, 
+"a" through "l," based upon the software functionality 
+for the applicable safety-critical requirements at each 
+code inspection/review.
+5.3.3 088 The project manager shall, for each planned 
+software peer review or software inspection: 
+a. Use a checklist or formal reading technique 
+(e.g., perspective-based reading) to evaluate the 
+work products. 
+b. Use established readiness and completion 
+criteria.
+c. Track actions identified in the reviews until 
+they are resolved.
+d. Identify the required participants.
+1. Confirm that the project meets the NPR 7150.2 
+criteria in "a" through "d" for each software peer 
+review.
+2. Confirm that the project resolves the actions 
+identified from the software peer reviews.
+3. Perform audits on the peer-review process. 
+5.3.4 089 The project manager shall, for each planned 
+software peer review or software inspection, 
+record necessary measurements.
+1. Confirm that the project records the software peer 
+reviews and results of software inspection 
+measurements.
+5.4 Software Measurements
+5.4.2 090 The project manager shall establish, record, 
+maintain, report, and utilize software 
+management and technical measurements.
+1. Confirm that a measurement program establishes, 
+records, maintains, reports, and uses software 
+assurance, management, and technical measures. 
+2. Perform trending analyses on metrics (quality 
+metrics, defect metrics) and report. 
+NASA-STD-8739.8B
+49 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+3. Collect any identified organizational metrics and 
+submit them to the organizational repository.
+5.4.3 093 The project manager shall analyze software 
+measurement data collected using documented 
+project-specified and Center/organizational 
+analysis procedures.
+1. Confirm software measurement data analysis 
+conforms to documented analysis procedures.
+2. Analyze software assurance measurement data.
+5.4.4 094 The project manager shall provide access to the 
+software measurement data, measurement 
+analyses, and software development status as 
+requested to the sponsoring Mission Directorate, 
+the NASA Chief Engineer, the Center Technical 
+Authorities, HQ SMA, and other organizations as 
+appropriate.
+1. Confirm access to software measurement data, 
+analysis, and status as requested to the following 
+entities, at a minimum:
+- Sponsoring Mission Directorate
+- NASA Chief Engineer
+- Center Technical Authorities
+- Headquarters SMA
+5.4.5 199 The project manager shall monitor measures to 
+ensure the software will meet or 
+exceed performance and functionality 
+requirements, including satisfying constraints. 
+1. Confirm that the project monitors and updates 
+planned measurements to ensure the software meets 
+or exceeds performance and functionality 
+requirements, including satisfying constraints. 
+2. Monitor and track any performance or 
+functionality requirements that are not being met or 
+are at risk of not being met.
+5.4.6 200 The project manager shall collect, track, and 
+report software requirements volatility metrics.
+1. Confirm that the project collects, tracks, and 
+reports on the software volatility metrics.
+2. Analyze software volatility metrics to evaluate 
+requirements stability as an early indicator of project 
+problems.
+5.5 Software Non-conformance or Defect 
+Management
+NASA-STD-8739.8B
+50 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+5.5.1 201 The project manager shall track and maintain 
+software non-conformances (including defects in 
+tools and appropriate ground software). 
+1. Confirm that all software non-conformances are 
+recorded and tracked to resolution.
+2. Confirm that accepted non-conformances include 
+the rationale for the non-conformance.
+5.5.2 202 The project manager shall define and implement 
+clear software severity levels for all software 
+non-conformances (including tools, COTS, 
+GOTS, MOTS, OSS, reused software 
+components, and applicable ground systems). 
+1. Confirm that all software non-conformances 
+severity levels are defined.
+2. Assess the application and accuracy of the defined 
+severity levels to software non-conformances.
+3. Confirm that the project assigns severity levels to 
+non-conformances associated with tools, COTS, 
+GOTS, MOTS, OSS, and reused software 
+components.
+4. Maintain or access the number of software nonconformances at each severity level for each software 
+configuration item.
+5.5.3 203 The project manager shall implement mandatory 
+assessments of reported non-conformances for all 
+COTS, GOTS, MOTS, OSS, and/or reused 
+software components. 
+1. Confirm the evaluations of reported nonconformances for all COTS, GOTS, MOTS, OSS, or 
+reused software components are occurring throughout 
+the project life cycle.
+2. Assess the impact of non-conformances on the 
+project software's safety, quality, and reliability.
+5.5.4 204 The project manager shall implement process 
+assessments for all high severity software nonconformances (closed loop process). 
+1. Perform or confirm that a root cause analysis has 
+been completed on all identified high severity 
+software nonconformances, and that the results are 
+recorded and have been assessed for adequacy. 
+2. Confirm that the project analyzed the processes 
+identified in the root cause analysis associated with 
+the high severity software non-conformances.
+3. Assess opportunities for improvement on the 
+processes identified in the root cause analysis 
+NASA-STD-8739.8B
+51 of 70
+NPR 
+7150.2 
+Section
+SWE 
+#
+NPR 7150.2 Requirement Software Assurance and Software Safety Tasks
+associated with the high severity software nonconformances. 
+4. Perform or confirm tracking of corrective actions 
+to closure on high severity software nonconformances.
+NASA-STD-8739.8B
+52 of 70
+4.4 Independent Verification &Validation
+IV&V Overview
+4.4.1.1 IV&V is a technical discipline of software assurance that employs rigorous analysis 
+and testing methodologies to identify objective evidence and conclusions to provide an
+independent assessment of critical products and processes throughout the software 
+development life cycle. The evaluation of products and processes throughout the life cycle 
+demonstrates whether the software is fit for nominal operations (required functionality, safety, 
+dependability, etc.) and off-nominal conditions (response to faults, responses to hazardous 
+conditions, etc.). The goal of the IV&V effort is to contribute assurance conclusions provided 
+to the project and stakeholders based on evidence found in software development artifacts and 
+risks associated with the intended behaviors of the software. 
+4.4.1.2 Three parameters define the independence of IV&V: technical independence, 
+managerial independence, and financial independence.
+a. Technical independence requires that the personnel performing the IV&V analysis are 
+not involved in the development of the system or its elements. The IV&V team establishes 
+an understanding of the problem and how the system addresses the problem. Through 
+technical independence, the IV&V team’s different perspective allows it to detect subtle 
+errors overlooked by personnel focused on developing the system.
+b. Managerial independence requires that the personnel performing the IV&V analysis are 
+not in the same organization as the development and program management team. 
+Managerial independence also means that the IV&V team makes its own decisions about
+which segments of the system and its software to analyze and test, chooses the IV&V 
+analysis methods to apply, and defines the IV&V schedule of activities. While independent 
+from the development and program management organization, the IV&V team provides its 
+findings in a timely manner to both of those organizations. The submission of findings to 
+the program management organization should not include any restrictions (e.g., requiring 
+the approval of the development organization) or any other adverse pressures from the 
+development group.
+c. Financial independence requires that the control of the IV&V budget be vested in a 
+group independent of the software development organization. Financial independence does 
+not necessarily mean that the IV&V team controls the budget but that the finances should 
+be structured so that funding is available for the IV&V team to complete its analysis or test 
+work. No adverse financial pressure or influence is applied.
+4.4.1.3 The IV&V process starts early in the software development life cycle, providing 
+feedback to the IV&V provider organization, allowing the IV&V team to modify products at 
+optimal timeframes and in a timely fashion, thereby reducing overall project risk. The feedback 
+also answers project stakeholders’ questions about system properties (correctness, robustness, 
+safety, security, etc.) to make informed decisions with respect to the development and 
+acceptance of the system and its software.
+NASA-STD-8739.8B
+53 of 70
+4.4.1.4 The IV&V provider performs two primary activities, often concurrently: 
+verification and validation. Each of the activities provides a different perspective on the 
+system/software. 
+a. Verification is the process of evaluating a system and its software to provide objective 
+evidence as to whether or not a product conforms to the build-to requirements and design 
+specifications. Verification holds from the requirements through the design and code and 
+into testing. Verification demonstrates that the products of a given development phase 
+satisfy the conditions imposed at the start of or during that phase.
+b. Validation develops objective evidence that shows that the content of the engineering 
+artifact is the right content for the developed system/software.
+The content is accurate and correct if the objective evidence demonstrates that it satisfies the 
+system requirements (e.g., user needs, stakeholder needs, etc.), fully describes the required 
+capability/functionality needed, and solves the right problem.
+4.4.1.5 The main goal of the IV&V effort is to identify and generate objective evidence that 
+supports the correct operation of the system or refutes the correct operation of the system. The 
+IV&V provider typically works with the development team to understand this objective 
+evidence, which provides artifacts such as concept studies, operations concepts, and 
+requirements that define the overall project. The IV&V provider uses these materials to 
+develop an independent understanding of the project’s commitment to NASA, which forms the 
+basis for validating lower-level technical artifacts.
+4.4.1.6 Two principles help guide the development and use of objective evidence.
+a. Performing IV&V throughout the entire development lifetime is the first principle; 
+potential problems should be detected as early as possible in the development life cycle.
+Performing IV&V throughout the entire development lifetime provides the IV&V team 
+with sufficient information to establish a basis for the analysis results and provides early 
+objective evidence to the development and program management groups to help keep the 
+development effort on track early in the life cycle.
+b. The second principle is “appropriate assurance.” Given that it is not possible to provide 
+IV&V on all aspects of a project’s software, the IV&V provider and project should balance 
+risks against available resources to define an IV&V program for each project that provides
+IV&V so that the software will operate correctly, safely, reliably, and securely throughout 
+its operational lifetime. The IPEP documents this tailored approach and summarizes the 
+cost/benefit trade-offs made in the scoping process.
+4.4.1.7 The IV&V requirements are analyzed and partitioned according to the type of 
+artifact. The requirements do not imply or require the use of any specific life cycle model. It is 
+also important to understand that IV&V applies to any life cycle development process. The 
+IV&V requirements document the potential scope of analysis performed by the IV&V provider
+and the key responsibility of the software project to provide the information needed to perform 
+that analysis. Additionally, the risk assessment is used to scope the IV&V analysis to help 
+determine the prioritization of activities and the level of rigor associated with performing those 
+NASA-STD-8739.8B
+54 of 70
+activities. The scoping exercise results are captured in the IV&V Project Execution Plan, as 
+documented below.
+IV&V Requirements
+The responsible project manager shall ensure the performance of the IV&V requirements, as
+defined in section 4.4.2 of this standard. The IV&V requirements in this section of the standard
+apply to any project required to have IV&V per the criteria defined in the NASA Software 
+Engineering Requirements, NPR 7150.2. The IV&V requirements apply to all IV&V efforts 
+performed on a software development project, as tailored by the IV&V Project Execution Plan. 
+The IV&V requirements also serve as the definition of what NASA considers IV&V. IV&V is a 
+risk mitigation activity, and as such, the application of IV&V analysis and the rigor of that analysis 
+is driven by the IV&V provider’s assessment of software risk.
+4.4.2.1 The IV&V provider shall conduct planning and risk assessments to determine the 
+specific system/software behaviors (including the software components responsible for 
+implementing the behaviors) to be analyzed.
+Note: IV&V is a focused activity that prioritizes IV&V analysis to address the highest 
+developmental and operational software risks. IV&V priority is based on the combination of 
+the potential for software impacts on safety and mission success and the probability factors for 
+latent defects. IV&V analysis activities provide coverage with a degree of rigor that reflects 
+the priority level. The initial planning and scoping effort based on the risk assessment define 
+the starting point for the IV&V analysis. During the life cycle of each IV&V project, 
+continuous and iterative feedback, through the execution of analysis, identification of issues 
+and risks, and the collection of deeper mission understanding, allows IV&V projects to 
+“Follow The Risk” and adjust plans. The planning and scoping effort also aid in establishing 
+the initial relationships between the IV&V provider, the Acquirer, and the Provider.
+4.4.2.2 The IV&V provider shall develop and negotiate an IV&V IPEP with the project. 
+Note: The IPEP documents the activities, methods, level of rigor, environments, tailoring (if 
+any) of the IV&V requirements, and criteria to be used in performing verification and 
+validation of in-scope system/software behaviors (including responsible software components) 
+determined by the planning and scoping effort. A Provider should use a documented analysis 
+approach to track and manage the IV&V effort aligned with ongoing development project 
+efforts. The IPEP documents which software products are subject to which analyses and which
+analysis requirements are wholly, partially, or not applied following the risk assessment and 
+resource constraints. The IPEP also serves as a communication tool between the project and 
+IV&V to set expectations for the IV&V products produced throughout the life cycle. The IPEP 
+may require updating throughout the life cycle.
+4.4.2.3 The Project SMA Technical Authority (TA) shall review and concur with the IPEP.
+4.4.2.4 The IV&V provider shall provide analysis results, risks, and assurance statements
+and data to the responsible organizations’ project management, engineering, and software 
+assurance personnel.
+NASA-STD-8739.8B
+55 of 70
+Note: While independent, the IV&V provider is still a part of a project's overall safety and risk 
+mitigation software assurance strategy. The results of IV&V analysis need to be incorporated 
+into the overall software assurance assessment of the project and provided to the project 
+management. The IV&V provider should support project milestone reviews and provide the 
+project with an evaluation of the life cycle review artifacts to assist development management 
+decisions on whether the review criteria have been met and how to proceed going forward.
+4.4.2.5 The IV&V provider shall participate in project reviews of software activities. 
+Participation includes providing status and results of software IV&V activities including, but 
+not limited to, upcoming analysis activities, artifacts needed from the project, the results of the 
+current or completed analysis, defects, and risks to stakeholders, customers, and development 
+project personnel.
+Note: The most significant positive impact of IV&V analysis is when the analysis results are in 
+phase with the development effort. Communicating defects after development artifacts are 
+baselined increases the cost to make the changes. Additionally, the inclusion of the IV&V 
+provider in ongoing technical meetings keeps the IV&V provider informed of possible changes 
+that may affect future IV&V tasking. Supporting the ongoing technical meetings allows the 
+IV&V Provider an opportunity to provide real-time feedback on these changes.
+4.4.2.6 The IV&V provider shall provide the responsible organizations’ project 
+management, engineering, and software assurance personnel insight into the software IV&V
+and IV&V test activities. As a minimum, the IV&V provider will be required to allow the
+responsible organizations’ project management, engineering, and software assurance personnel
+to perform the following activities:
+a. Monitor the IV&V activities and plans.
+b. Review the verification activities to ensure adequacy.
+c. Review IV&V studies and source data.
+d. Audit the software IV&V processes and practices.
+e. Participate in IV&V software reviews and technical interchange meetings
+4.4.2.7 The IV&V provider shall participate in planned software peer reviews or software 
+inspections guided by the planning and scoping risk analysis documented in the IPEP and 
+NASA-HDBK-2203.
+Note: The IV&V provider should be involved in the review/inspection process for all 
+system/software items within the scope of their analysis.
+4.4.2.8 The IV&V provider shall establish, record, maintain, report, and utilize IV&V 
+management and technical measurements. 
+Note: The IV&V provider gathers and analyzes metrics on a periodic basis to perform 
+continuous improvement of IV&V processes and identify indicators of IV&V and project risks.
+NASA-STD-8739.8B
+56 of 70
+4.4.2.9 The IV&V provider shall assess and track software activities' actual results and 
+performance against the software plans and identify and report any risks or findings to the 
+responsible organizations’ project management, engineering, and software assurance 
+personnel.
+4.4.2.10 The IV&V provider shall track and evaluate changes to software products to 
+evaluate for possible changes in the IV&V provider’s risk analysis and potential adverse 
+impacts to the software system and the development effort. 
+4.4.2.11 The IV&V provider shall assess the software development life cycle for suitability 
+for the problem to be solved and identify and communicate any risks associated with the 
+chosen life cycle to the responsible organizations’ project management, engineering, and 
+software assurance personnel.
+4.4.2.12 The IV&V provider shall identify, analyze, track, and record risks to the software 
+and development project in accordance with NPR 8000.4, Agency Risk Management 
+Procedural Requirements, and communicate the risks to the responsible organizations’ project 
+management, engineering, and software assurance personnel. 
+4.4.2.13 The IV&V provider shall verify the project implements the requirements for 
+software listed in NPR 7150.2 and communicate any risks to the responsible organizations’ 
+project management, engineering, and software assurance personnel.
+4.4.2.14 The IV&V provider shall track, record, and communicate defects/issues and other 
+results found during the execution of IV&V analysis and independent IV&V testing to the 
+responsible organizations’ project management, engineering, and software assurance 
+personnel.
+4.4.2.15 The IV&V provider shall ensure that the identified defects and issues are addressed 
+by the project.
+4.4.2.16 The IV&V provider shall ensure that software planned for reuse meets the fit, form, 
+and function as a component within the new application.
+4.4.2.17 The IV&V provider shall ensure that the system architecture contains the 
+computing-related items (subsystems, components, etc.) to carry out the system's mission and 
+satisfy user needs and operational scenarios or use cases.
+4.4.2.18 The IV&V provider shall ensure that the basis for the computing-related functions 
+reflects the planned operations and mission objectives.
+4.4.2.19 The IV&V provider shall ensure that feasibility and trade studies provide the results 
+to support the critical decisions that drove the need for the study.
+4.4.2.20 The IV&V provider shall ensure that known software-based hazard causes, 
+contributors, and controls are identified, documented, and traced to the project requirements.
+NASA-STD-8739.8B
+57 of 70
+4.4.2.21 The IV&V provider shall ensure that known security threats and risks are identified, 
+appropriately documented, and updated throughout the software development life cycle and 
+communicated to the responsible organizations’ project management, engineering, and 
+software assurance personnel.
+4.4.2.22 The IV&V provider shall verify and validate that the software requirements and 
+system requirements are, as a minimum, correct, consistent, complete, accurate, readable, 
+traceable, and testable. 
+Note: Software usually provides the interface between the user and the system hardware and
+the interface between system hardware components and other systems. These interfaces are 
+critical to the successful operation and use of the system.
+4.4.2.23 The IV&V provider shall verify and validate that the mitigations for identified 
+security risks are in the software requirements.
+Note: Security is an essential aspect of any system development effort. In most systems, 
+software provides the primary user interface. The user interface is an element of the system 
+that can provide undesired access. A system concept design should address known security 
+risks through various features in the system.
+4.4.2.24 The IV&V provider shall ensure that software requirements meet the dependability 
+and fault tolerance required by the system.
+4.4.2.25 The IV&V provider shall ensure that software requirements provide the capability 
+of controlling identified hazards and do not create hazardous conditions.
+4.4.2.26 The IV&V provider shall verify and validate that the relationship between the inscope system/software requirements and the associated architectural elements is traceable,
+correct, consistent, and complete.
+Note: Architectural elements are responsible for implementing specific behaviors within the
+software and the overall system. The interactions between these architectural elements result 
+in the realization of the desired behaviors as well as possible undesired behaviors. 
+4.4.2.27 The IV&V provider shall verify and validate that the software architecture meets 
+the user’s safety and mission-critical needs as defined in the requirements. 
+Note: The architecture provides the foundation for the development of the software. It also 
+significantly impacts how the software deals with faults and failures and how the software
+interfaces with the user and system components. Analysis of the architecture provides early 
+insight into how the software is structured and how that structure can implement the 
+requirements.
+4.4.2.28 The IV&V provider shall verify and validate that the detailed design products are 
+traceable, consistent, complete, accurate, and testable. 
+NASA-STD-8739.8B
+58 of 70
+Note: Detailed design is the implementation of the algorithms that control and monitor the 
+different parts of the system and allow for interaction between the system and the user and 
+other systems. The detailed design defines how the architectural components behave to support 
+the interactions defined in the architecture. Analysis of the detailed design includes looking at
+the low-level software components in the software system.
+4.4.2.29 The IV&V provider shall verify and validate that the interfaces between the detailed 
+design components and the hardware, users, operators, other software, and external systems are 
+correct, consistent, complete, accurate, and testable.
+Note: While the architecture defines the interactions between the architectural elements, each 
+element is generally composed of lower-level components defined by the detailed design. The 
+interfaces between these components are important in ensuring that the architectural element 
+meets its assigned responsibilities. 
+4.4.2.30 The IV&V provider shall verify and validate that the relationship between the 
+software requirements and the associated detailed design components is correct, consistent, and 
+complete.
+Note: The detailed design components capture the approach to implementing the software
+requirements, including the requirements associated with fault management, security, and 
+safety. Analysis of the relationship between the detailed design and the software requirements 
+provides evidence that all requirements are in the detailed design.
+4.4.2.31 The IV&V provider shall verify and validate that the software code and data 
+products are consistent with architecture, complete with respect to requirements, and testable.
+4.4.2.32 The IV&V provider shall verify and validate that the software code meets the 
+industry best practices and software coding standards. 
+4.4.2.33 The IV&V provider shall verify and validate that the security risks in the software
+code are identified and mitigated.
+Note: This includes software developed by NASA, software developed for NASA, software 
+maintained by or for NASA, COTS, GOTS, MOTS, OSS, reused software components, autogenerated code, embedded software, the software executed on processors embedded in 
+programmable logic devices, legacy, heritage, applications, freeware, shareware, trial or 
+demonstration software.
+4.4.2.34 The IV&V provider shall verify and validate the appropriate use of off-the-shelf 
+software, including ensuring that the project has identified all OSS used and that the security 
+risks are identified and mitigated by the use of the off-the-shelf software.
+4.4.2.35 The IV&V provider shall verify and validate that the project assesses the software
+systems for possible security vulnerabilities and weaknesses.
+NASA-STD-8739.8B
+59 of 70
+4.4.2.36 The IV&V provider shall verify and validate that the project implements the 
+required software security risk mitigations to ensure that security objectives for software are 
+satisfied.
+4.4.2.37 The IV&V provider shall verify and validate the source code through the use of
+analysis tools (including but not limited to static, dynamic, composition, and formal analysis 
+tools). 
+Note: The use of analysis tools may include the verification and validation of the analysis tools 
+used by the development project in the process of developing the software. The results may be 
+from static code analysis, software composition analysis, dynamic code analysis, cyclomatic 
+complexity, or other code quality analysis tools.
+4.4.2.38 The IV&V provider shall verify and validate that the relationship between the 
+software design elements and the associated software units is correct, consistent, and complete. 
+4.4.2.39 The IV&V provider shall verify and validate that the relationship between software
+code components and corresponding requirements is correct, complete, and consistent. 
+Note: For all of the implementation requirements, it is with code that the development of 
+software reaches its lowest level of abstraction and that the software capabilities are 
+implemented. Evaluating the relationship between the source code and the design components 
+and requirements provides evidence that only the specified requirements and components are 
+in the system. Evaluating the relationship between the source code and the design components 
+and requirements helps minimize one aspect of the emergence of unexpected behaviors: the
+inclusion of behaviors not specified in the requirements. The overall analysis of the code is 
+essential in assuring that the code does implement the required software behaviors. From a 
+safety perspective, it is important to evaluate the code and assure that known software safety 
+and security issues such as buffer overflows and type mismatches, among many others, are not 
+used in safety-critical aspects of the software.
+4.4.2.40 The IV&V provider shall verify and validate that test plans, test procedures, test 
+cases, test environment (including simulations), and test design at all levels of testing (unit, 
+integration, system, acceptance, etc.) are correct, complete, and consistent for verification and 
+validation of the source code and system functions allocated to the software.
+4.4.2.41 The IV&V provider shall verify and validate the relationships between the test 
+plans, test procedures, test cases, test design, source code. and system functions allocated to the 
+software are correct, complete, and consistent. 
+4.4.2.42 The IV&V provider shall verify that the test plans, test cases, test design, and test 
+procedures contain objective acceptance criteria that support the verification of the associated 
+requirements for both nominal and off-nominal conditions. 
+4.4.2.43 The IV&V provider shall verify that the software test results meet the associated 
+acceptance criteria to ensure that the software correctly implements the associated 
+requirements.
+NASA-STD-8739.8B
+60 of 70
+Note: The IV&V provider assesses the testing artifacts with respect to the desired capabilities 
+and expected operational system environment. The assessment includes an examination of 
+testing at system boundary conditions to include unexpected conditions. The testing analysis 
+assures that the project tests all requirements and that the system does what the requirements 
+state it should do. The testing analysis also includes an analysis of the traceability information 
+between the tests and the requirements.
+4.4.2.44 The IV&V provider shall verify that the project tests the required software security 
+risk mitigations to ensure that the security objectives for the software are satisfied.
+4.4.2.45 The IV&V provider shall verify that code coverage is measured by analysis of the 
+results of the execution of tests.
+4.4.2.46 The IV&V provider shall verify through independent testing each of the software 
+requirements that trace to a hazardous event, cause, or mitigation technique.
+4.4.2.47 The IV&V provider shall verify the project’s acceptance tests for loaded or 
+uplinked data, rules, and code that affects software and software system behavior.
+4.4.2.48 The IV&V provider shall participate in all NASA quality audits, assessments, and 
+reviews associated with the project.
+4.4.2.49 The IV&V provider shall assess the software maintenance and operational risks
+concerning software elements to support the planning of IV&V activities during the 
+maintenance phase.
+Note 1: The approach to software development on some projects results in different parts of 
+the software going into operation at different times in the overall project life cycle. For 
+example, a lander mission to Mars may complete the software needed for the cruise phase to 
+Mars while continuing to work on the entry, descent, landing, and surface operations software. 
+Note 2: In some cases, software anomalies cause changes to the software. IV&V is important 
+because software changes can often have ripple effects throughout the system and cause 
+emergent behaviors. The IV&V analysis provides insight into these possible effects and 
+provides an overall assessment of the impact of the change.
+4.5 Principles Related to Tailoring the Standard Requirements
+The SMA TA for the project shall review and approve any tailored Software Assurance 
+and Software Safety Standard requirements.
+Software requirements tailoring is the process used to seek relief from standard 
+requirements consistent with program or project objectives, acceptable risk, and constraints. To 
+accommodate the wide variety of software systems and subsystems, applying these requirements 
+to specific software assurance, software safety, and IV&V efforts may be tailored where justified 
+and approved. NASA established the TA governance model to approve and mitigate any changes 
+to the Software Assurance and Software Safety Standard requirements. Tailoring from 
+requirements in the Software Assurance and Software Safety Standard is governed by the 
+NASA-STD-8739.8B
+61 of 70
+following steps. Tailoring at the Center level is decided by the SMA TA and the NPR 7150.2 
+Requirements Mapping Matrix applicability. Tailor the software assurance, software safety, and 
+IV&V requirements using the following levels:
+a. The first level of tailoring is the Software Classification Decision, see NPR 7150.2.
+b. The second level of tailoring is the project’s Software Requirements Mapping Matrix, see 
+NPR 7150.2.
+c. The third level of tailoring is the tailoring by the Software Assurance TA of the Software 
+Assurance and Software Safety Standard requirements that correspond to the project’s 
+Software Requirements Mapping Matrix requirements. 
+The Software Assurance and Software Safety Standard establishes a baseline set of 
+requirements for software assurance, software safety, and IV&V to reduce risks on NASA projects 
+and programs. Each project has unique circumstances, and tailoring can modify the requirements 
+set for software assurance, software safety, and IV&V effort. Determining the tailoring of 
+requirements is a joint software engineering effort and SMA effort, including acceptable technical 
+and programmatic risk posture, Agency priorities, size, and complexity. Requirements can be 
+tailored more broadly across a group of similar projects, programs, organizations, or other 
+collections of similar software development efforts. 
+Per SWE-121, the software assurance organization maintains a Requirements Mapping 
+Matrix or multiple Requirements Mapping Matrices against requirements in the Software 
+Assurance and Software Safety Standard, including those delegated to other parties or 
+accomplished by contract vehicles. Per SWE-013 and SWE-039, the software assurance 
+organization conducts risk assessment efforts to determine the software assurance, software safety, 
+and IV&V tasks to be performed and the rigor of each task. 
+The request for relief from a requirement includes the rationale, a risk evaluation, and 
+reference to all material that justifies supporting acceptance. The organization submitting the 
+tailoring request informs the next higher level of involved management of the tailoring request in a 
+timely manner. The dispositioning organization reviews the request with the other organizations 
+that could be impacted or have a potential risk (i.e., to safety, quality, cybersecurity, health) with 
+the proposed changes and obtains the concurrence of those organizations.
+If a system or subsystem development evolves to meet a higher or lower software 
+classification defined in NPR 7150.2, the software assurance, software safety, and IV&V 
+organizations shall update their plan(s) to fulfill the applicable requirements per the Requirements 
+Mapping Matrix and any approved changes and initiate adjustments to applicable contracts to meet
+the modified requirements.
+The responsibilities for approving changes to the software engineering requirements are 
+in NPR 7150.2. When the requirement and software class are applicable, the projects record the 
+risk and rationale for any requirement not completely implemented by the project. The projects can 
+document their related mitigations and risk acceptance in the approved Requirements Mapping 
+Matrix.
+NASA-STD-8739.8B
+62 of 70
+GUIDELINES FOR THE HAZARD DEVELOPMENT
+INVOLVING SOFTWARE
+A.1 Software Contributions to Hazards
+A.1.1 Hazard Analysis should consider software’s ability, by design, to cause or control a given 
+hazard. It is a best practice to include the software within the system hazard analysis. The general 
+hazard analysis should consider software common-mode failures that can occur in instances of 
+redundant flight computers running the same software.
+A.1.2 Software safety analysis supplements the system hazard analysis by assessing the 
+software performing critical functions serving as a hazard cause or control. A typical software 
+safety analysis process identifies the must work and must not work functions in the hazard reports. 
+The system hazard analysis and software safety analysis process should assess each function for 
+compliance with the levied functional software requirements. The system hazard analysis and 
+software safety analysis also assure the redundancy management performed by the software 
+supports fault tolerance requirements. 
+A.1.3 The second part of the safety review should complete the design analysis portion of 
+software safety analysis. The software safety analysis supports a requirements gap analysis to 
+identify gaps (SWE-184) and ensure the risk and control strategy documented in hazard reports is
+correct, as stated. The system hazards analysis and software safety analysis support test plans' 
+analysis to assure adequate off-nominal scenarios (SWE-62, SWE-65). Finally, the system hazards 
+analysis should verify the final implementation and uphold the analysis by ensuring test results 
+permit the closure of hazard verifications (SWE-68). 
+A.1.4 Considerations when identifying software causes in a general software-centric hazard 
+analysis are found in Table 2 below.
+Table 2. Additional considerations to consider when identifying software causes in hazard analysis
+Software Cause 
+Areas to Consider
+Potential Software Causes
+Data errors 1. Asynchronous communications
+2. Single or double event upset/bit flip or hardware induced error
+3. Communication to/from an unexpected system on the network
+4. An out-of-range input value, a value above or below the range 
+5. Start-up or hardware initiation data errors
+6. Data from an antenna gets corrupted
+7. Failure of software interface to memory 
+8. Failure of flight software to suppress outputs from a failed component 
+9. Failure of software to monitor bus controller rates to ensure 
+communication with all remote terminals on the bus schedule's 
+avionics buses
+10. Ground or onboard database error
+11. Interface error
+NASA-STD-8739.8B
+63 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+12. Latent data 
+13. Communication bus overload
+14. Missing or failed integrity checks on inputs, failure to check the 
+validity of input/output data
+15. Excessive network traffic/babbling node - keeps the network so busy 
+it inhibits communication from other nodes
+16. Sensors or actuators stuck at some value 
+17. Wrong software state for the input
+Commanding errors 1. Command buffer error or overflow
+2. Corrupted software load
+3. Error in real-time command build or sequence build
+4. Failure to command during hazardous operations
+5. Failure to perform prerequisite checks before the execution of safetycritical software commands
+6. Ground or onboard database error for the command structure
+7. Error in command data introduced by command server error
+8. Incorrect operator input commands 
+9. Wrong command or a miscalculated command sent 
+10. Sequencing error, failure to issue commands in the correct sequence
+11. Command sent in wrong software state or software in an incorrect or 
+unanticipated state
+12. An incorrect timestamp on the command
+13. Missing software error handling on incorrect commands 
+14. Status messages on command execution not provided 
+15. Memory corruption, critical data variables overwritten in memory
+16. Inconsistent syntax
+17. Inconsistent command options 
+18. Similarly named commands
+19. Inconsistent error handling rules
+20. Incorrect automated command sequence built into script containing 
+single commands that can remove multiple inhibits to a hazard
+Flight computer 
+errors
+1. Board support package software error
+2. Boot load software error
+3. Boot Programmable Read-Only Memory (PROM) corruption 
+preventing reset
+4. Buffer overrun
+5. CPU overload
+6. Cycle jitter
+7. Cycle over-run
+8. Deadlock
+9. Livelock
+10. Reset during program upload (PROM corruption)
+11. Reset with no restart
+12. Single or double event upset/bit flip or hardware induced error
+NASA-STD-8739.8B
+64 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+13. Time to reset greater than time to failure
+14. Unintended persistent data/configuration on reset
+15. Watchdog active during reboot causing infinite boot loop
+16. Watchdog failure
+17. Failure to detect and transition to redundant or backup computer
+18. Incorrect or stale data in redundant or backup computer
+Operating systems 
+errors
+1. Application software incompatibility with upgrades/patches to an 
+operating system
+2. Defects in Real-Time Operating System (RTOS) Board Support 
+software
+3. Missing or incorrect software error handling
+4. Partitioning errors
+5. Shared resource errors
+6. Single or double event upset/bit flip
+7. Unexpected operating system software response to user input 
+8. Excessive functionality
+9. Missing function 
+10. Wrong function
+11. Inadequate protection against operating system bugs
+12. Unexpected and aberrant software behavior
+Programmable logic 
+device errors
+1. High cyclomatic complexity levels (above 15)
+2. Errors in programming and simulation tools used for Programmable 
+Logic Controller (PLC) development
+3. Errors in the programmable logic device interfaces
+4. Errors in the logic design
+5. Missing software error handling in the logic design
+6. PLC logic/sequence error
+7. Single or double event upset/bit flip or hardware induced error
+8. Timing errors
+9. Unexpected operating system software response to user input
+10. Excessive functionality
+11. Missing function 
+12. Wrong function
+13. Unexpected and aberrant software behavior
+Flight system time 
+management errors
+1. Incorrect data latency/sampling rates
+2. Failure to terminate/complete process in a given time
+3. Incorrect time sync
+4. Latent data (Data delayed or not provided in required time) 
+5. Mission elapsed time timing issues and distribution 
+6. Incorrect function execution, performing a function at the wrong 
+time, out of sequence, or when the program is in the wrong state
+7. Race conditions
+8. The software cannot respond to an off-nominal condition within the 
+time needed to prevent a hazardous event
+NASA-STD-8739.8B
+65 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+9. Time function runs fast/slow
+10. Time skips (e.g., Global Positioning System time correction)
+11. Loss or incorrect time sync across flight system components
+12. Loss or incorrect time Synchronization between ground and 
+spacecraft Interfaces
+13. Unclear software timing requirements
+14. Asynchronous systems or components
+15. Deadlock conditions
+16. Livelocks conditions
+Coding, logic, and 
+algorithm failures, 
+algorithm 
+specification errors
+1. Auto-coding errors as a cause
+2. Bad configuration data/no checks on external input files and data
+3. Division by zero
+4. Wrong sign 
+5. Syntax errors 
+6. Error coding software algorithm 
+7. Error in positioning algorithm
+8. Case/type/conversion error/unit mismatch 
+9. Buffer overflows
+10. High cyclomatic complexity levels (above 15)
+11. Dead code or unused code
+12. Endless do loops
+13. Erroneous outputs
+14. Failure of flight computer software to transition to or operate in a 
+correct mode or state
+15. Failure to check safety-critical outputs for reasonableness and 
+hazardous values and correct timing
+16. Failure to generate a process error upon detection of arithmetic error 
+(such as divide-by-zero)
+17. Failure to create a software error log report when an unexpected 
+event occurs
+18. Inadvertent memory modification
+19. Incorrect "if-then" and incorrect "else"
+20. Missing default case in a switch statement
+21. Incorrect implementation of a software change, software defect, or 
+software non-conformance
+22. Incorrect number of functions or mathematical iteration
+23. Incorrect software operation if no commands are received or if a loss 
+of commanding capability exists (inability to issue commands)
+24. Insufficient or poor coding reviews, inadequate software peer 
+reviews
+25. Insufficient use of coding standards
+26. Interface errors
+27. Missing or inadequate static analysis checks on code 
+28. Missing or incorrect parameter range and boundary checking
+NASA-STD-8739.8B
+66 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+29. Non-functional loops
+30. Overflow or underflow in the calculation
+31. Precision mismatch
+32. Resource contention (e.g., thrashing: two or more processes 
+accessing a shared resource)
+33. Rounding or truncation fault
+34. Sequencing error (e.g., failure to issue commands in the correct 
+sequence)
+35. Software is initialized to an unknown state; failure to properly 
+initialize all system and local variables are upon startup, including 
+clocks
+36. Too many or too few parameters for the called function
+37. Undefined or non-initialized data
+38. Untested COTS, MOTS, or reused code
+39. Incomplete end-to-end testing
+40. Incomplete or missing software stress test
+41. Errors in the data dictionary or data dictionary processes
+42. Confusing feature names 
+43. More than one name for the same feature
+44. Repeated code modules
+45. Failure to initialize a loop-control 
+46. Failure to initialize (or reinitialize) pointers 
+47. Failure to initialize (or reinitialize) registers
+48. Failure to clear a flag
+49. Scalability errors 
+50. Unexpected new behavior or defects introduced in newer or updated 
+COTS modules
+51. Not addressing pointer closure
+Fault tolerance and 
+fault management 
+errors
+1. Missing software error handling
+2. Missing or incorrect fault detection logic
+3. Missing or incorrect fault recovery logic
+4. Problems with the execution of emergency safing operations 
+5. Failure to halt all hazard functions after an interlock failure 
+6. The software cannot respond to an off-nominal condition within the 
+time needed to prevent a hazardous event
+7. Common mode software faults
+8. A hazard causal factor occurrence isn't detected
+9. False positives in fault detection algorithms
+10. Failure to perform prerequisite checks before the execution of safetycritical software commands
+11. Failure to terminate/complete process in a given time
+12. Memory corruption, critical data variables overwritten in memory
+13. Single or double event upset/bit flip or hardware induced error
+14. Incorrect interfaces, errors in interfaces
+NASA-STD-8739.8B
+67 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+15. Missing self-test capabilities
+16. Failing to consider stress on the hardware
+17. Incomplete end-to-end testing
+18. Incomplete or missing software stress test
+19. Errors in the data dictionary or data dictionary processes
+20. Failure to provide or ensure secure access for input data, 
+commanding, and software modifications
+Software process 
+errors
+1. Failure to implement software development processes or 
+implementing inadequate processes 
+2. Inadequate software assurance support and reviews
+3. Missing or inadequate software assurance audits
+4. Failure to follow the documented software development processes
+5. Missing, tailored, or incomplete implementation of the safety-critical 
+software requirements in NPR 7150.2 
+6. Missing, tailored, or incomplete implementation of the safety-critical 
+software requirements in Space Station Program 50038, ComputerBased Control System Safety Requirements
+7. Incorrect or incomplete testing
+8. Inadequate testing of reused or heritage software
+9. Failure to open a software problem report when an unexpected event 
+occurs
+10. Failure to include hardware personnel in reviews of software 
+changes, software implementation, peer reviews, and software 
+testing
+11. Failure to perform a safety review on all software changes and 
+software defects
+12. Defects in COTS, MOTS, or OSS Software, 
+13. Failure to perform assessments of available bug fixes and updates 
+available in COTS software 
+14. Insufficient use of coding standards
+15. Missing or inadequate static analysis checks on code
+16. Incorrect version loaded
+17. Incorrect configuration values or data
+18. No checks on external input files and data
+19. Errors in configuration data changes being uploaded to spacecraft
+20. Software/avionics simulator/emulator errors and defects
+21. Unverified software
+22. High cyclomatic complexity levels (over 15)
+23. Incomplete or inadequate software requirements analysis
+24. Compound software requirements
+25. Incomplete or inadequate software hazard analysis
+26. Incomplete or inadequate software safety analysis
+27. Incomplete or inadequate software test data analysis
+NASA-STD-8739.8B
+68 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+28. Unrecorded software defects found during informal and formal 
+software testing
+29. Auto-coding tool faults and defects
+30. Errors in design models 
+31. Software errors in hardware simulators due to a lack of 
+understanding of hardware requirements
+32. Incomplete or inadequate software test data analysis
+33. Inadequate built-in-test coverage
+34. Inadequate regression testing and unit test coverage of flight 
+software application-level source code 
+35. Failure to test all nominal and planned contingency scenarios 
+(breakout and re-rendezvous, launch abort) and complete mission 
+duration (launch to docking to splashdown) in the hardware in the 
+loop environment
+36. Incomplete testing of unexpected conditions, boundary conditions, 
+and software/interface inputs
+37. Use of persistence of test data, files, or config files in an operational 
+scenario
+38. Failure to provide multiple paths or triggers from safe states to 
+hazardous states
+39. Interface control documents and interface requirements documents 
+errors 
+40. System requirements errors
+41. Misunderstanding of hardware configuration and operation
+42. Hardware requirements and interface errors, Incorrect description of 
+the software/hardware functions and how they are to perform
+43. Missing or incorrect software requirements or specifications
+44. Missing software error handling
+45. Requirements/design errors not fully defined, detected, and 
+corrected)
+46. Failure to identify the safety-critical software items
+47. Failure to perform a function, performing the wrong function, 
+performing the function incompletely
+48. An inadvertent/unauthorized event, an unexpected, unwanted event, 
+an out-of-sequence event, the failure of a planned event to occur
+49. The magnitude or direction of an event is wrong
+50. Out-of-sequence event protection
+51. Multiple events/actions trigger simultaneously (when not expected)
+52. Error or exception handling missing or incomplete
+53. Inadvertent or incorrect mode transition for required vehicle 
+functional operation; undefined or incorrect mode transition criteria; 
+unauthorized mode transition
+54. Failure of flight software to correctly initiate proper transition mode
+NASA-STD-8739.8B
+69 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+55. Software state transition error
+56. Software termination is an unknown state
+57. Errors in the software data dictionary values 
+Human-machine 
+interface errors 
+1. Incorrect data (unit conversion, incorrect variable type)
+2. Stale data 
+3. Poor design of human machine interface
+4. Too much, too little, incorrect data displayed
+5. Ambiguous or incorrect messages 
+6. User display locks up/fails
+7. Missing software error handling
+8. Unsolicited command (command issued inadvertently, cybersecurity 
+issue, or without cause)
+9. Wrong command or a miscalculated command sent
+10. Failure to display information or messages to a user
+11. Display refresh rate leads to an incorrect operator response
+12. Lack of ordering scheme for hazardous event queues (such as alerts) 
+in the human-computer interface (i.e., priority versus time of arrival, 
+for example, when an abort must go to the top of the queue)
+13. Incorrect labeling of operator controls in the human interface 
+software
+14. Failure to check for constraints in algorithms/specifications and valid 
+boundaries 
+15. Failure of human interface software to check operator inputs
+16. Failure to pass along information or messages
+17. No onscreen instructions 
+18. Undocumented features 
+19. States that appear impossible to exit 
+20. No cursor 
+21. Failure to acknowledge an input 
+22. Failure to advise when a change takes effect 
+23. Wrong, misleading, or confusing information
+24. Poor aesthetics in the screen layout 
+25. Menu layout errors 
+26. Dialog box layout errors 
+27. Obscured instructions 
+28. Misuse of color
+29. Failure to allow tabbing navigation to edit fields (mouse only input)
+Security and virus 
+errors
+1. Denial or interruption of service
+2. Spoofed or jammed inputs
+3. Missing capabilities to detect insider threat activities
+4. Inadvertent or intentional memory modification
+5. Inadvertent or unplanned mode transition
+6. Missing software error handling or detect handling
+7. Unsolicited command 
+NASA-STD-8739.8B
+70 of 70
+Software Cause 
+Areas to Consider
+Potential Software Causes
+8. Stack-based buffer overflows
+9. Heap-based attacks
+10. Cybersecurity vulnerability or computer virus
+11. Inadvertent access to ground system software
+12. Destruct commands incorrectly allowed in a hands-off zone
+13. Communication to/from an unexpected system on the network
+Unknown Unknowns 
+errors
+1. Undetected software defects
+2. Unknown limitations for COTS (operational, environmental, stress)
+3. COTS extra capabilities
+4. Incomplete or inadequate software safety analysis for COTS 
+components
+5. Compiler behavior errors or undefined compiler behavior
+6. Software defects and investigations that are unresolved before the 
+flight
