@@ -1,27 +1,31 @@
-# React + TypeScript + Vite
+## Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://star-ai-deployment.vercel.app/
 
-Currently, two official plugins are available:
+Disclaimer:The LLM part is not deployed due to server limmitations
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Link to LLM model: https://github.com/R1shabh-Gupta/star.ai/blob/main/AeroCoreLLMmodel/Aero-Core-v1.ipynb
 
-## Expanding the ESLint configuration
+# High Level Summary
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+We have developed a cutting-edge AERO-core and search engine application tailored specifically for NASA's extensive library of PDF files related to equipment and shuttle crafts used in NASA projects. This innovative solution harnesses AI models to store, retrieve, and intelligently present information, addressing a critical challenge faced by NASA in efficiently accessing and utilizing its vast repository of technical documentation.
 
-- Configure the top-level `parserOptions` property like this:
+How It Solves the Challenge:
+Efficient Search and Retrieval: Our AI-powered search engine employs advanced algorithms to provide users with the most relevant PDF files in response to their queries. This streamlines information retrieval, saving time and effort. Natural Language Interaction: The LLM component of our application enables natural language conversations, making NASA's wealth of knowledge accessible to a diverse audience, from experts to enthusiasts. Cross-Referencing and Contextualization: By cross-referencing information from various PDF documents, our solution enhances users' understanding by providing comprehensive and contextual insights into equipment and shuttle craft-related topics. Real-Time Updates: Automatic version tracking ensures that users always have access to the latest information, critical for mission-critical decision-making and safety. Educational Resource: This application serves as a valuable educational resource, promoting space exploration understanding among students, educators, and the general public.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Why It's Important: NASA's technical documentation is extensive and vital for mission success and safety. Our application streamlines access to this information, supporting engineers, astronauts, and mission planners. The ability to efficiently access and understand equipment and shuttle craft details can lead to cost savings, enhanced safety, and faster problem-solving during missions. By offering a user-friendly interface and multilingual support, our solution expands the reach of NASA's knowledge base, fostering global interest in space exploration and technology.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Program Flow
+
+![App Screenshot](https://raw.githubusercontent.com/pranav-bot/Github-images/master/Screenshot%202023-10-11%20214514.png)
+
+![App Screenshot](https://raw.githubusercontent.com/pranav-bot/Github-images/master/Screenshot%202023-10-11%20214520.png)
+
+## Devlopers
+
+- [@pranav-bot](https://github.com/pranav-bot)
+- [@R1shabh-Gupta](https://github.com/R1shabh-Gupta)
+- [@suhrud1511](https://github.com/Suhrud1511)
+- [@mannpandya1702](https://github.com/mannpandya1702)
+- [@Nik-7113](https://github.com/Nik-7113)
+- [@Shravknowscoding](Shravknowscoding)
