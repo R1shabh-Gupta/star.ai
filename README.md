@@ -2,7 +2,7 @@
 
 https://star-ai-deployment.vercel.app/
 
-Disclaimer:The LLM part is not deployed due to server limmitations
+Disclaimer: The LLM part is not deployed due to server limitations
 
 Link to LLM model: https://github.com/R1shabh-Gupta/star.ai/blob/main/AeroCoreLLMmodel/Aero-Core-v1.ipynb
 
