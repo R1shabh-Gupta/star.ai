@@ -1,5 +1,5 @@
-const Page = () => {
-  return <div>Page</div>;
+const AEROCore = () => {
+  return <div>AEROCore</div>;
 };
 
-export default Page;
+export default AEROCore;

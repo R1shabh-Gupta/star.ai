@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+@font-face {
+  font-family: "Nasalization";
+  src: url("/nasalization-rg.otf") format(otf);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
