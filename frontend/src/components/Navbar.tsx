@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   return (
-    <div className="absolute top-0 z-10 flex items-center w-full px-12 py-4 text-sm bg-blue-200 bg-opacity-0 gap-14 font-body bg-clip-padding backdrop-filter backdrop-blur-lg">
+    <div className="fixed top-0 z-50 flex items-center w-full px-12 py-4 text-sm bg-blue-200 bg-opacity-0 gap-14 font-body bg-clip-padding backdrop-filter backdrop-blur-sm">
       <Link href="/" className="text-xl font-heading">
         STAR AI
       </Link>
