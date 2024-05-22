@@ -1,6 +1,6 @@
 "use client";
 
-import QuestionAnswerInterface from "@/components/QuestionAnswerInterface";
+import SearchBar from "@/components/SearchBar";
 import { Icon } from "@/components/ui/Icon";
 import { EvervaultCard } from "@/components/ui/evervault-card";
 import { HeroHighlight } from "@/components/ui/hero-highlight";
@@ -22,6 +22,14 @@ const SearchEngine = () => {
   const [handbooks, setHandbooks] = useState<Handbook[]>([]);
   const [selectedTags, setSelectedTags] = useState(["Software"]);
   const [isLoading, setLoading] = useState(true);
+
+  const placeholders = [
+    "Software safety practitioners",
+    "Technical handbook",
+    "Fracture control requirements",
+    "Spacecraft grounding architecture",
+    "Interpretative direction and techniques",
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +73,7 @@ const SearchEngine = () => {
               Handbooks
             </motion.h1>
             <div className="flex flex-col items-center w-full gap-7">
-              <QuestionAnswerInterface />
+              <SearchBar placeholders={placeholders} />
               <div className="border border-black/[0.3] group/canvas-card flex flex-col gap-3 items-center justify-center dark:border-white/[0.2] mt-5 w-full mx-auto p-4 relative bg-black/30">
                 <Icon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
                 <Icon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
